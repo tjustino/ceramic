@@ -1,0 +1,51 @@
+# https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
+fr:
+################################################################################
+# Active Model
+# https://github.com/rails/rails/blob/master/activemodel/lib/active_model/locale/en.yml
+################################################################################
+  errors:
+    format: "%{message}"
+    template:
+      header:
+        one: "1 erreur a été détectée :"
+        other: "%{count} erreurs ont été détectées :"
+
+################################################################################
+# Active Record
+# https://github.com/rails/rails/blob/master/activerecord/lib/active_record/locale/en.yml
+################################################################################
+  activerecord:
+    errors:
+      messages:
+        blank:        "ne peut pas être vide"
+        taken:        "a déjà été pris"
+        confirmation: "ne correspond pas au mot de passe"
+        not_a_number: "doit être une valeur numérique"
+        too_short:    "doit comporter au minimum %{count} caractères"
+        invalid:      "n'est pas valide"
+        restrict_dependent_destroy:
+          has_one:  "Impossible de supprimer car il existe une %{record}."
+          has_many: "Impossible de supprimer car il existe des %{record}."
+
+################################################################################
+# Active Support
+# https://github.com/rails/rails/blob/master/activesupport/lib/active_support/locale/en.yml
+################################################################################
+  date:
+    formats:
+      default:  "%d/%m/%Y"
+      short:    "%d/%m"
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+
+  number:
+    currency:
+      format:
+        unit: "€"
+        precision: 2
+        separator: ","
+        delimiter: " "
+        format: "%n %u"

@@ -1,0 +1,19 @@
+= render partial: "admin/breadcrumb", locals: { part:       "Étiquettes",
+                                                new_part:   "Nouvelle étiquette",
+                                                index_link: tags_path,
+                                                new_link:   new_tag_path }
+
+table.table.is-striped.is-fullwidth
+  thead
+    tr
+      th Groupe d'étiquettes
+      th Étiquette
+      th colspan="2"
+  tbody
+    - @meta_tags.each do |meta_tag|
+      tr
+        th rowspan="#{meta_tag.tags.count}" = meta_tag.name
+        = render "tag_row", tag: meta_tag.tags.first
+        - meta_tag.tags.offset(1).each do |tag|
+          tr
+            = render "tag_row", tag: tag

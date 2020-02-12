@@ -1,0 +1,14 @@
+h2 Votre panier
+
+.columns.is-centered
+  table.table.is-hoverable
+    tbody
+      - @cart.products.group(:name, :price).size.each do |product, quantity|
+        tr
+          td #{quantity} x
+          td = product[0]
+          td.has-text-right = number_to_currency(product[1]*quantity)
+    tfoot
+      tr
+        th.has-text-right colspan="2" Total :
+        td.has-text-right = number_to_currency(@cart.products.sum(:price))

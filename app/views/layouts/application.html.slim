@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title Céra(mi)mique
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_pack_tag "application", media: "all"
+    = javascript_pack_tag "application"
+
+  body
+    header.section.has-background-primary
+      .container.has-text-centered
+        = link_to (image_tag asset_pack_path("media/images/ceramimique.svg"), class: "invert-color"), root_path
+        / h1.is-size-4.has-text-white Céramique artisanale
+        .breadcrumb.has-dot-separator.is-centered aria-label="breadcrumbs"
+          ul
+            - unless params[:controller] == "home" && params[:action] == "index"
+              li = link_to icon_text("fas fa-home", "Accueil"), root_path, class: "has-text-white"
+            li = link_to "Qui je suis", whoami_path, class: "has-text-white"
+            li = link_to text_icon("Actualité", "fab fa-facebook"), "https://www.facebook.com/CERAMIMIQUE/", target: "_blank", class: "has-text-white"
+            li = link_to "Galerie photos", gallery_path, class: "has-text-white"
+          / = render partial: "layouts/cart"
+
+    / section
+    section.section
+      .container
+        - if flash[:alert]
+          .notification.is-danger
+            button.delete
+            = flash[:alert]
+        - elsif flash[:warning]
+          .notification.is-warning
+            button.delete
+            = flash[:warning]
+        - elsif flash[:notice]
+          .notification.is-success
+            button.delete
+            = flash[:notice]
+        = yield
+
+    footer.footer.has-background-primary
+      .columns
+        .column.is-narrow
+          .content.is-small
+            h4.has-text-white Mentions légales
+            ul.has-text-white
+              li = mail_to "contact@ceramimique.fr", "Contact", class: "has-text-white"
+              li = link_to "<abbr title='Conditions Générales de Vente'>CGV</abbr>".html_safe, root_path, class: "has-text-white"
+              li = link_to "Politique de confidentialité", root_path, class: "has-text-white"
+        .column
+          = image_tag asset_pack_path("media/images/walking_cocotte.svg"), class: "invert-color"
+
+    / - if Rails.env.development?
+    /   = console

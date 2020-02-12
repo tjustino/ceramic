@@ -1,0 +1,19 @@
+= render partial: "admin/breadcrumb", locals: { part:       "Groupe d'étiquettes",
+                                                new_part:   "Nouveau groupe d'étiquettes",
+                                                index_link: meta_tags_path,
+                                                new_link:   new_meta_tag_path }
+
+table.table.is-striped.is-fullwidth
+  thead
+    tr
+      th Groupe d'étiquettes
+      th colspan="2"
+  tbody
+    - @meta_tags.each do |meta_tag|
+      tr
+        td = meta_tag.name
+        td = link_to icon_text("far fa-edit", "Éditer"), edit_meta_tag_path(meta_tag)
+        td = link_to icon_text("fas fa-trash", "Supprimer"), \
+                     meta_tag, \
+                     method: :delete, \
+                     data: { confirm: "Êtes-vous certain de vouloir supprimer le groupe d'étiquettes « #{meta_tag.name} » ?" }

@@ -1,0 +1,263 @@
+tasses_et_mugs_01:
+  product: product_12
+  tag: tasses_et_mugs
+
+tasses_et_mugs_02:
+  product: product_21
+  tag: tasses_et_mugs
+
+tasses_et_mugs_03:
+  product: product_11
+  tag: tasses_et_mugs
+
+repose_cuillieres_01:
+  product: product_11
+  tag: repose_cuillieres
+
+repose_cuillieres_02:
+  product: product_42
+  tag: repose_cuillieres
+
+repose_cuillieres_03:
+  product: product_37
+  tag: repose_cuillieres
+
+assiettes_01:
+  product: product_10
+  tag: assiettes
+
+assiettes_02:
+  product: product_29
+  tag: assiettes
+
+assiettes_03:
+  product: product_38
+  tag: assiettes
+
+bros_et_pichets_01:
+  product: product_43
+  tag: bros_et_pichets
+
+bros_et_pichets_02:
+  product: product_10
+  tag: bros_et_pichets
+
+bros_et_pichets_03:
+  product: product_29
+  tag: bros_et_pichets
+
+dessous_de_plat_01:
+  product: product_40
+  tag: dessous_de_plat
+
+dessous_de_plat_02:
+  product: product_39
+  tag: dessous_de_plat
+
+dessous_de_plat_03:
+  product: product_20
+  tag: dessous_de_plat
+
+magnets_01:
+  product: product_03
+  tag: magnets
+
+magnets_02:
+  product: product_42
+  tag: magnets
+
+magnets_03:
+  product: product_38
+  tag: magnets
+
+brules_parfum_photophores_01:
+  product: product_01
+  tag: brules_parfum_photophores
+
+brules_parfum_photophores_02:
+  product: product_46
+  tag: brules_parfum_photophores
+
+brules_parfum_photophores_03:
+  product: product_02
+  tag: brules_parfum_photophores
+
+porte_encens_01:
+  product: product_20
+  tag: porte_encens
+
+porte_encens_02:
+  product: product_18
+  tag: porte_encens
+
+porte_encens_03:
+  product: product_34
+  tag: porte_encens
+
+coupelles_01:
+  product: product_41
+  tag: coupelles
+
+coupelles_02:
+  product: product_47
+  tag: coupelles
+
+coupelles_03:
+  product: product_20
+  tag: coupelles
+
+suspensions_01:
+  product: product_46
+  tag: suspensions
+
+suspensions_02:
+  product: product_19
+  tag: suspensions
+
+suspensions_03:
+  product: product_17
+  tag: suspensions
+
+supports_huiles_essentielles_01:
+  product: product_39
+  tag: supports_huiles_essentielles
+
+supports_huiles_essentielles_02:
+  product: product_10
+  tag: supports_huiles_essentielles
+
+supports_huiles_essentielles_03:
+  product: product_12
+  tag: supports_huiles_essentielles
+
+boucles_d_oreilles_01:
+  product: product_06
+  tag: boucles_d_oreilles
+
+boucles_d_oreilles_02:
+  product: product_36
+  tag: boucles_d_oreilles
+
+boucles_d_oreilles_03:
+  product: product_08
+  tag: boucles_d_oreilles
+
+colliers_01:
+  product: product_15
+  tag: colliers
+
+colliers_02:
+  product: product_08
+  tag: colliers
+
+colliers_03:
+  product: product_33
+  tag: colliers
+
+bagues_01:
+  product: product_19
+  tag: bagues
+
+bagues_02:
+  product: product_10
+  tag: bagues
+
+bagues_03:
+  product: product_42
+  tag: bagues
+
+porte_bijoux_01:
+  product: product_18
+  tag: porte_bijoux
+
+porte_bijoux_02:
+  product: product_42
+  tag: porte_bijoux
+
+porte_bijoux_03:
+  product: product_49
+  tag: porte_bijoux
+
+vases_01:
+  product: product_42
+  tag: vases
+
+vases_02:
+  product: product_03
+  tag: vases
+
+vases_03:
+  product: product_19
+  tag: vases
+
+cache_pots_01:
+  product: product_45
+  tag: cache_pots
+
+cache_pots_02:
+  product: product_01
+  tag: cache_pots
+
+cache_pots_03:
+  product: product_07
+  tag: cache_pots
+
+pots_encens_01:
+  product: product_16
+  tag: pots_encens
+
+pots_encens_02:
+  product: product_26
+  tag: pots_encens
+
+pots_encens_03:
+  product: product_23
+  tag: pots_encens
+
+piques_fleurs_01:
+  product: product_25
+  tag: piques_fleurs
+
+piques_fleurs_02:
+  product: product_28
+  tag: piques_fleurs
+
+piques_fleurs_03:
+  product: product_11
+  tag: piques_fleurs
+
+porte_savons_01:
+  product: product_44
+  tag: porte_savons
+
+porte_savons_02:
+  product: product_33
+  tag: porte_savons
+
+porte_savons_03:
+  product: product_13
+  tag: porte_savons
+
+porte_brosses_a_dents_01:
+  product: product_39
+  tag: porte_brosses_a_dents
+
+porte_brosses_a_dents_02:
+  product: product_38
+  tag: porte_brosses_a_dents
+
+porte_brosses_a_dents_03:
+  product: product_33
+  tag: porte_brosses_a_dents
+
+personnages_decoratifs_01:
+  product: product_35
+  tag: personnages_decoratifs
+
+personnages_decoratifs_02:
+  product: product_50
+  tag: personnages_decoratifs
+
+personnages_decoratifs_03:
+  product: product_43
+  tag: personnages_decoratifs

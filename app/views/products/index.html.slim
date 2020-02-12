@@ -1,0 +1,26 @@
+= render partial: "admin/breadcrumb", locals: { part:       "Produits",
+                                                new_part:   "Nouveau produit",
+                                                index_link: products_path,
+                                                new_link:   new_product_path }
+
+
+table.table.is-striped.is-fullwidth
+  thead
+    tr
+      th
+      th Nom
+      th Description
+      th Prix
+      th colspan="2"
+  tbody
+    - @products.each do |product|
+      tr
+        td = product.is_promoted ? single_icon("far fa-star") : nil
+        td = product.name
+        td = truncate(product.description, length: 80)
+        td = number_to_currency(product.price)
+        td = link_to icon_text("far fa-edit", "Éditer"), edit_product_path(product)
+        td = link_to icon_text("fas fa-trash", "Supprimer"), \
+                     product, \
+                     method: :delete, \
+                     data: { confirm: "Êtes-vous certain de vouloir supprimer le produit « #{product.name} » ?" }

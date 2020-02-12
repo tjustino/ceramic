@@ -1,0 +1,17 @@
+.columns.is-multiline
+  - products.each do |product|
+    .column.is-one-third
+      .card
+        .card-image
+          figure.image
+            = image_tag asset_pack_path("media/images/original_1.jpg")
+            - if product.tags.any?
+              .ribbon
+                h2
+                  = line_break(product.tags).html_safe
+        .card-content
+          .content = truncate(product.description, length: 100)
+        .card-footer
+          p.has-text-weight-semibold.card-footer-item = number_to_currency(product.price)
+          = link_to icon_text("fas fa-cart-plus", "Acheter"), to_cart_path(product), method: :post, class: "card-footer-item has-text-link"
+          = link_to icon_text("fas fa-info-circle", "Détails"), product_path(product), class: "card-footer-item has-text-info"

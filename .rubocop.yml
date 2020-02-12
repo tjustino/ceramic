@@ -1,0 +1,32 @@
+# https://rubocop.readthedocs.io/en/stable/
+require:
+  - rubocop-md
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+
+# Preferences
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+# # Specific to my eccentric comments
+# Layout/ExtraSpacing:
+#   Exclude:
+#     - Gemfile
+
+# Well, it's seem it's a rails project
+Rails:
+  Enabled: true
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - node_modules/**/*
+    - bin/bundle
+    - lib/tasks/auto_annotate_models.rake

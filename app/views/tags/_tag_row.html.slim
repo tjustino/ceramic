@@ -1,0 +1,6 @@
+td = tag.name
+td = link_to icon_text("far fa-edit", "Éditer"), edit_tag_path(tag)
+td = link_to icon_text("fas fa-trash", "Supprimer"), \
+             tag, \
+             method: :delete, \
+             data: { confirm: "Êtes-vous certain de vouloir supprimer l'étiquette « #{tag.name} » ?" }

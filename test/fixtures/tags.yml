@@ -1,0 +1,93 @@
+############################################################### Arts de la table
+tasses_et_mugs:
+  name: Tasses et mugs
+  meta_tag: arts_de_la_table
+
+repose_cuillieres:
+  name: Repose cuillières
+  meta_tag: arts_de_la_table
+
+assiettes:
+  name: Assiettes
+  meta_tag: arts_de_la_table
+
+bros_et_pichets:
+  name: Bros et pichets
+  meta_tag: arts_de_la_table
+
+dessous_de_plat:
+  name: Dessous de plat
+  meta_tag: arts_de_la_table
+
+############################################################# Accessoires / déco
+magnets:
+  name: Magnets
+  meta_tag: accessoires_deco
+
+brules_parfum_photophores:
+  name: Brûles parfum / photophores
+  meta_tag: accessoires_deco
+
+porte_encens:
+  name: Porte-encens
+  meta_tag: accessoires_deco
+
+coupelles:
+  name: Coupelles
+  meta_tag: accessoires_deco
+
+suspensions:
+  name: Suspensions
+  meta_tag: accessoires_deco
+
+supports_huiles_essentielles:
+  name: Supports huiles essentielles
+  meta_tag: accessoires_deco
+
+######################################################################### Bijoux
+boucles_d_oreilles:
+  name: Boucles d'oreilles
+  meta_tag: bijoux
+
+colliers:
+  name: Colliers
+  meta_tag: bijoux
+
+bagues:
+  name: Bagues
+  meta_tag: bijoux
+
+porte_bijoux:
+  name: Porte bijoux
+  meta_tag: bijoux
+
+################################################################### Côté plantes
+vases:
+  name: Vases
+  meta_tag: cote_plantes
+
+cache_pots:
+  name: Cache-pots
+  meta_tag: cote_plantes
+
+pots_encens:
+  name: Pots-encens
+  meta_tag: cote_plantes
+
+piques_fleurs:
+  name: Piques fleurs
+  meta_tag: cote_plantes
+
+################################################################## Salle de bain
+porte_savons:
+  name: Porte savons
+  meta_tag: salle_de_bain
+
+porte_brosses_a_dents:
+  name: Porte brosses à dents
+  meta_tag: salle_de_bain
+
+###################################################### Augustin, Augustine & Co.
+personnages_decoratifs:
+  name: Personnages décoratifs
+  meta_tag: augustin_augustine

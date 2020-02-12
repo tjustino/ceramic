@@ -1,0 +1,8 @@
+.columns.is-vcentered
+  .column
+    .breadcrumb aria-label="breadcrumbs"
+      ul
+        li = link_to "Administration", admin_path
+        li.is-active = link_to part, index_link
+  .column
+    .buttons.is-right = link_to icon_text("fas fa-plus-circle", new_part), new_link, class: "button is-info"

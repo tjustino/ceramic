@@ -1,0 +1,25 @@
+/ search by tags
+nav.panel
+  p.panel-heading Des céramiques pour tous les goûts :
+  - @meta_tags.each do |meta_tag|
+    a.panel-block.meta-tag
+      = icon_text("far fa-plus-square", meta_tag.name)
+    .panel-block.content-tags
+      .tags
+        - meta_tag.tags.each do |tag|
+          = link_to tag.name, search_path(tag: tag.id), class: "tag is-info is-light is-rounded"
+  .panel-block
+    p.control.has-icons-left
+      input.input type="text" placeholder="Recherche" disabled="disabled"
+      span.icon.is-left
+        i.fas.fa-search aria-hidden="true"
+
+/ divider
+aside.divider
+  = icon_text_icon("far fa-star", "Quelques unes de nos plus belles créations")
+
+/ cards
+= render partial: "products/card", locals: { products: @promoted_products }
+
+.button.is-large.is-rounded.is-fullwidth.is-light
+  = link_to icon_text_icon("fas fa-angle-double-right", "Voir tous les produits"), search_path, class: "has-text-link"

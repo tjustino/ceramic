@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+$primary: #8bbfcc;
+$info: #245e72;
+$link: #245e72;
+
+@import 'bulma/bulma';
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+
+header.section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer.footer {
+  padding-bottom: 2rem;
+}
+
+.invert-color {
+  filter: invert(1);
+}
+
+.content-tags {
+  display: none;
+}
+
+// #cart {
+//   z-index: 99;
+//   border-radius: 25px;
+//   background-color: $blue;
+//   position: fixed;
+//   bottom: 0;
+//   right: 0;
+// }
+
+//////////////////////////////////////////////////////////////////// ↓ divider ↓
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 1em;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dededf;
+}
+
+.divider::before {
+  margin-right: .5em;
+}
+
+.divider::after {
+  margin-left: .5em;
+}
+//////////////////////////////////////////////////////////////////// ↑ divider ↑
+
+
+///////////////////////////////////////////////////////////////////// ↓ ribbon ↓
+.ribbon:before, .ribbon:after {
+  bottom: 26px;
+  box-shadow: 0 28px 8px rgba(0,0,0,0.5);
+  content: "";
+  height: 28px;
+  position: absolute;
+  width: 48%;
+  z-index: -1;
+}
+
+.ribbon:before {
+  left: 2%;
+  transform: rotate(-3deg);
+}
+
+.ribbon:after {
+  right: 2%;
+  transform: rotate(3deg);
+}
+
+.ribbon h2 {
+  border-width: 1px 1px 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  background: $primary;
+  color: $white;
+  margin: 0;
+  padding: 4px 25px;
+  position: absolute;
+  right: -14px;
+  top: 12px;
+}
+
+.ribbon h2:after {
+  border-width: 7px;
+  border-style: solid;
+  border-color: #134 transparent transparent #134;
+  bottom: -15px;
+  content: "";
+  position: absolute;
+  right: -1px;
+}
+///////////////////////////////////////////////////////////////////// ↑ ribbon ↑
