@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   # GET /
   def index
+    @banners = Banner.where(["start < :nw and end > :nw", { nw: DateTime.now }])
     @meta_tags = MetaTag.all.order(:name)
     @promoted_products = Product.promoted.order(:name)
   end

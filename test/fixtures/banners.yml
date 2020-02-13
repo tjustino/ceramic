@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+january:
+  message: _january_ mi odio, porttitor a justo id, tempus tristique risus. Proin in posuere lacus. Donec eget cursus lacus. Ut semper eu libero at elementum.
+  start: 2020-01-01 00:00:01
+  end: 2020-01-31 23:59:59
+
+february:
+  message: _february_ quam nisl, tincidunt vitae purus vel, egestas blandit velit. Donec nec est non erat pulvinar volutpat condimentum a tortor. Sed maximus efficitur finibus.
+  start: 2020-02-01 00:00:01
+  end: 2020-02-29 23:59:59

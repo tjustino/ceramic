@@ -10,12 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_211441) do
+ActiveRecord::Schema.define(version: 2020_02_13_213304) do
+
+  create_table "banners", force: :cascade do |t|
+    t.text "message", null: false
+    t.datetime "start", null: false
+    t.datetime "end", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "meta_tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_cart_relations", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_product_cart_relations_on_cart_id"
+    t.index ["product_id"], name: "index_product_cart_relations_on_product_id"
   end
 
   create_table "product_tag_relations", force: :cascade do |t|
@@ -44,6 +66,8 @@ ActiveRecord::Schema.define(version: 2020_01_21_211441) do
     t.index ["meta_tag_id"], name: "index_tags_on_meta_tag_id"
   end
 
+  add_foreign_key "product_cart_relations", "carts"
+  add_foreign_key "product_cart_relations", "products"
   add_foreign_key "product_tag_relations", "products"
   add_foreign_key "product_tag_relations", "tags"
   add_foreign_key "tags", "meta_tags"

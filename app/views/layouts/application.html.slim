@@ -22,9 +22,15 @@ html
             li = link_to "Galerie photos", gallery_path, class: "has-text-white"
           / = render partial: "layouts/cart"
 
-    / section
+    / messages
     section.section
       .container
+        / banner
+        - @banners.each do |banner|
+          .notification.is-info.is-light
+            button.delete
+            = banner.message
+        / flash
         - if flash[:alert]
           .notification.is-danger
             button.delete
@@ -37,6 +43,7 @@ html
           .notification.is-success
             button.delete
             = flash[:notice]
+        / here we are baby
         = yield
 
     footer.footer.has-background-primary
