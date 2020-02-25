@@ -1,5 +1,5 @@
 class MetaTagsController < ApplicationController
-  before_action :set_meta_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_meta_tag, only: [:edit, :update, :destroy]
 
   # GET /meta_tags
   def index
