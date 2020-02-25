@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
     redirect_to products_url, notice: 'Product was successfully destroyed.'
   end
 
-  # POST /products/1/add_to_cart
+  # POST /products/1/to_cart
   def to_cart
     ProductCartRelation.create(product_id: @product.id, cart_id: @cart.id)
     redirect_to cart_url(@cart), notice: "Ajouté au panier !"
