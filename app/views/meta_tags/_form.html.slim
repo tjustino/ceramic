@@ -1,0 +1,30 @@
+.columns.is-vcentered
+  .column
+    .breadcrumb aria-label="breadcrumbs"
+      ul
+        li = link_to "Administration", admin_path
+        li = link_to "Groupe d'étiquettes", meta_tags_path
+        - if params[:action] == "edit"
+          li.is-active = link_to title, edit_meta_tag_path(meta_tag)
+        - elsif params[:action] == "new"
+          li.is-active = link_to title, new_meta_tag_path
+
+.column.is-half.is-offset-one-quarter
+  .card
+    = form_with(model: meta_tag, local: true) do |form|
+      .card-content
+        .content
+          .field
+            = form.label :name, "Nom", class: "label"
+            .control
+              = form.text_field :name, class: "input  #{'is-danger' if meta_tag.errors.any?}"
+            - meta_tag.errors.full_messages.each do |message|
+              p.help.is-danger = message
+      footer.card-footer
+        .field.is-grouped.is-grouped-right.card-footer-item
+          .control
+            / = form.submit "💾 Enregistrement", class: "button is-link"
+            = form.button class: "button is-link"
+              = icon_text("fas fa-save", "Enregistrement")
+          .control
+            = link_to "Retour arrière", meta_tags_path, class: "button is-link is-light"
