@@ -26,10 +26,11 @@ html
     section.section
       .container
         / banner
-        - @banners.each do |banner|
-          .notification.is-info.is-light
-            button.delete
-            = banner.message
+        - if @banners.present?
+          - @banners.each do |banner|
+            .notification.is-info.is-light
+              button.delete
+              = banner.message
         / flash
         - if flash[:alert]
           .notification.is-danger

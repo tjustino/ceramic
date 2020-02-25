@@ -1,10 +1,11 @@
 class HomeController < ApplicationController
+  include Banners
   include CurrentCart
   before_action :set_cart
+  before_action :load_banners
 
   # GET /
   def index
-    @banners = Banner.where(["start < :nw and end > :nw", { nw: DateTime.now }])
     @meta_tags = MetaTag.all.order(:name)
     @promoted_products = Product.promoted.order(:name)
   end

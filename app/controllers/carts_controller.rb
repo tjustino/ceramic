@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
+  include Banners
   include CurrentCart
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart,     only: [:show, :edit, :update, :destroy]
+  before_action :load_banners, only: [:show]
 
   # GET /carts
   def index

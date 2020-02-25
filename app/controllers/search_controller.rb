@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
+  include Banners
   include CurrentCart
+  before_action :load_banners, only: [:index]
   before_action :set_cart
 
   def index
