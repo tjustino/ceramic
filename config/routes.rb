@@ -1,21 +1,25 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :banners
   # For details on the DSL, see https://guides.rubyonrails.org/routing.html
+
+  ######################################################################## admin
   get "admin", to: "admin#index"
+
   scope :admin do
+    resources :banners
     resources :carts,     only:   %i[index new create edit update destroy]
+    resources :meta_tags, except: [:show]
     resources :products,  only:   %i[index new create edit update destroy]
     resources :tags,      except: [:show]
-    resources :meta_tags, except: [:show]
   end
 
-  resources :products, only: [:show]
-  resources :carts, only: [:show]
-  get  "search", to: "search#index"
-  post "products/:id/to_cart(.:format)", to: "products#to_cart", as: "to_cart"
-  get  "whoami", to: "home#whoami"
-  get  "gallery", to: "home#gallery"
+  ####################################################################### public
+  resources :carts,                      only: [:show]
   root "home#index"
+  get  "whoami",                         to: "home#whoami"
+  get  "gallery",                        to: "home#gallery"
+  resources :products,                   only: [:show]
+  post "products/:id/to_cart(.:format)", to: "products#to_cart", as: "to_cart"
+  get  "search",                         to: "search#index"
 end
