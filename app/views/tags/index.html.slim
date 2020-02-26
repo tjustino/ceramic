@@ -1,7 +1,10 @@
-= render partial: "admin/breadcrumb", locals: { part:       "Étiquettes",
-                                                new_part:   "Nouvelle étiquette",
-                                                index_link: tags_path,
-                                                new_link:   new_tag_path }
+= render partial: "admin/breadcrumb",
+                  locals: { \
+                    current_nav_text: "Étiquettes",
+                    current_nav_link: tags_path,
+                    new_button_text:  "Nouvelle étiquette",
+                    new_button_link:  new_tag_path \
+                  }
 
 table.table.is-striped.is-fullwidth
   thead
