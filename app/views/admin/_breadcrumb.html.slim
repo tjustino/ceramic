@@ -6,7 +6,7 @@
         - unless params[:action] == "index"
           li = link_to previous_nav_text, previous_nav_link
         li.is-active = link_to current_nav_text, current_nav_link
-  - unless params[:action] == "edit" || params[:action] == "new"
+  - if params[:action] == "index" && defined?(new_button_text) && defined?(new_button_link)
     .column
       .buttons.is-right = link_to icon_text("fas fa-plus-circle", new_button_text),
                                   new_button_link,
