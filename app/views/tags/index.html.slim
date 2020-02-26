@@ -14,9 +14,14 @@ table.table.is-striped.is-fullwidth
       th colspan="2"
   tbody
     - @meta_tags.each do |meta_tag|
-      tr
-        th rowspan="#{meta_tag.tags.count}" = meta_tag.name
-        = render "tag_row", tag: meta_tag.tags.first
-        - meta_tag.tags.offset(1).each do |tag|
-          tr
-            = render "tag_row", tag: tag
+      - if meta_tag.tags.any?
+        tr
+          th rowspan="#{meta_tag.tags.count}" = meta_tag.name
+          = render "tag_row", tag: meta_tag.tags.first
+          - meta_tag.tags.offset(1).each do |tag|
+            tr
+              = render "tag_row", tag: tag
+      - else
+        tr
+          th rowspan="1" = meta_tag.name
+          td.is-italic.has-text-grey colspan="3" Aucune étiquette pour ce groupe
