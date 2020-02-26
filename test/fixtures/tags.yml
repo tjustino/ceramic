@@ -1,4 +1,13 @@
-############################################################### Arts de la table
+# == Schema Information
+#
+# Table name: tags
+#
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  meta_tag_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 tasses_et_mugs:
   name: Tasses et mugs
   meta_tag: arts_de_la_table
