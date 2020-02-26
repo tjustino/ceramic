@@ -6,7 +6,7 @@ class MetaTagsController < ApplicationController
 
   # GET /meta_tags
   def index
-    @meta_tags = MetaTag.all
+    @meta_tags = MetaTag.all.order(:name)
   end
 
   # GET /meta_tags/new
@@ -22,8 +22,7 @@ class MetaTagsController < ApplicationController
     @meta_tag = MetaTag.new(meta_tag_params)
 
     if @meta_tag.save
-      redirect_to meta_tags_url,
-                  notice: notice_message("créé")
+      redirect_to meta_tags_url, notice: notice_message("créé")
     else
       render :new
     end
@@ -32,8 +31,7 @@ class MetaTagsController < ApplicationController
   # PATCH/PUT /meta_tags/1
   def update
     if @meta_tag.update(meta_tag_params)
-      redirect_to meta_tags_url,
-                  notice: notice_message("mis à jour")
+      redirect_to meta_tags_url, notice: notice_message("mis à jour")
     else
       render :edit
     end
@@ -41,9 +39,13 @@ class MetaTagsController < ApplicationController
 
   # DELETE /meta_tags/1
   def destroy
-    @meta_tag.destroy
-    redirect_to meta_tags_url,
-                notice: notice_message("supprimé")
+    if @meta_tag.destroy
+      redirect_to meta_tags_url, notice: notice_message("supprimé")
+    else
+      redirect_to meta_tags_url,
+                  warning: "Impossible de surpprimer « #{@meta_tag.name} » : " \
+                           "il reste des étiquettes rattachées !"
+    end
   end
 
   private ######################################################################
