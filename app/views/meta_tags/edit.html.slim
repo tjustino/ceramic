@@ -3,7 +3,7 @@
            previous_nav_text: "Groupe d'étiquettes",
            previous_nav_link: meta_tags_path,
            current_nav_text:  icon_text("far fa-edit", "Édition du groupe d'étiquettes"),
-           current_nav_link:  meta_tags_path \
+           current_nav_link:  edit_meta_tag_path(@meta_tag) \
          }
 
 = render partial: "form", locals: { meta_tag: @meta_tag }
