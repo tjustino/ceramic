@@ -1,0 +1,18 @@
+.column.is-half.is-offset-one-quarter
+  .card
+    = form_with(model: tag, local: true) do |form|
+      .card-content
+        .content
+          .field
+            = form.label :name, "Nom", class: "label"
+            .control
+              = form.text_field :name, class: "input  #{'is-danger' if tag.errors.any?}"
+            - tag.errors.full_messages.each do |message|
+              p.help.is-danger = message
+      footer.card-footer
+        .field.is-grouped.is-grouped-right.card-footer-item
+          .control
+            = form.button class: "button is-link"
+              = icon_text("fas fa-save", "Enregistrement")
+          .control
+            = link_to "Retour arrière", tags_path, class: "button is-link is-light"

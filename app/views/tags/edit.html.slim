@@ -1,0 +1,9 @@
+= render partial: "admin/breadcrumb",
+         locals: { \
+           previous_nav_text: "Étiquettes",
+           previous_nav_link: tags_path,
+           current_nav_text:  icon_text("far fa-edit", "Édition d'étiquette"),
+           current_nav_link:  edit_tag_path(@tag) \
+         }
+
+= render partial: "form", locals: { tag: @tag }
