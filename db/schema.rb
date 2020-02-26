@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_213304) do
   end
 
   create_table "meta_tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -50,16 +50,16 @@ ActiveRecord::Schema.define(version: 2020_02_13_213304) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
-    t.decimal "price", precision: 8, scale: 2
-    t.boolean "is_promoted"
+    t.decimal "price", precision: 8, scale: 2, null: false
+    t.boolean "is_promoted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "meta_tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
