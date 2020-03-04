@@ -1,0 +1,24 @@
+= render partial: "admin/breadcrumb",
+                  locals: { \
+                    current_nav_text: "Clients",
+                    current_nav_link: users_path,
+                    new_button_text:  "Nouveau client",
+                    new_button_link:  new_user_path \
+                  }
+
+table.table.is-striped.is-fullwidth
+  thead
+    tr
+      th
+      th Email
+      th colspan="2"
+  tbody
+    - @users.each do |user|
+        tr
+          td = user.is_admin ? single_icon("far fa-star") : nil
+          td = user.email
+          td = link_to icon_text("far fa-edit", "Éditer"), edit_user_path(user)
+          td = link_to icon_text("fas fa-trash", "Supprimer"), \
+                       user, \
+                       method: :delete, \
+                       data: { confirm: "Êtes-vous certain de vouloir supprimer l'utilisateur « #{user.email} » ?" }

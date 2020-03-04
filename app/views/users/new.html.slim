@@ -1,0 +1,9 @@
+= render partial: "admin/breadcrumb",
+         locals: { \
+           previous_nav_text: "Clients",
+           previous_nav_link: users_path,
+           current_nav_text:  icon_text("fas fa-plus-circle", "Nouveau client"),
+           current_nav_link:  new_user_path \
+         }
+
+= render partial: "form", locals: { user: @user }

@@ -8,14 +8,16 @@ Rails.application.routes.draw do
 
   scope :admin do
     resources :banners
-    resources :carts,     only:   %i[index new create edit update destroy]
+    resources :carts,     only: %i[index new create edit update destroy]
     resources :meta_tags, except: [:show]
-    resources :products,  only:   %i[index new create edit update destroy]
+    resources :products,  only: %i[index new create edit update destroy]
     resources :tags,      except: [:show]
+    resources :users,     only:   [:index]
   end
 
   ####################################################################### public
-  resources :carts,                      only: [:show]
+  resources :carts, only: [:show]
+  resources :users, only: %i[new create edit update destroy]
   root "home#index"
   get  "whoami",                         to: "home#whoami"
   get  "gallery",                        to: "home#gallery"
