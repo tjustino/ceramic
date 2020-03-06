@@ -2,10 +2,20 @@
 
 admin:
   email: admin@user.com
-  password_digest: <%= BCrypt::Password.create('p@ssw0rd') %>
+  password_digest: <%= BCrypt::Password.create('Yes_p@p@!') %>
   is_admin: true
 
-regular:
-  email: regular@user.com
-  password_digest: <%= BCrypt::Password.create('p@ssw0rd') %>
+backup_admin:
+  email: backup.admin@user.com
+  password_digest: <%= BCrypt::Password.create('Yes_p@p@!') %>
+  is_admin: true
+
+customer:
+  email: customer@user.com
+  password_digest: <%= BCrypt::Password.create('Yes_p@p@!') %>
+  is_admin: false
+
+visitor:
+  email: visitor@user.com
+  password_digest: <%= BCrypt::Password.create('Yes_p@p@!') %>
   is_admin: false
