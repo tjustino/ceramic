@@ -6,8 +6,8 @@
           .field
             = form.label :name, "Nom", class: "label"
             .control
-              = form.text_field :name, class: "input  #{'is-danger' if meta_tag.errors.any?}"
-            - meta_tag.errors.full_messages.each do |message|
+              = form.text_field :name, class: "input  #{'is-danger' if meta_tag.errors.include?(:name)}"
+            - meta_tag.errors.full_messages_for(:name).each do |message|
               p.help.is-danger = message
       footer.card-footer
         .field.is-grouped.is-grouped-right.card-footer-item

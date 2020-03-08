@@ -24,8 +24,10 @@
           .field
             .control
               = form.label :is_admin, class: "checkbox" do
-                = form.check_box :is_admin
+                = form.check_box :is_admin, class: "#{'is-danger' if user.errors.include?(:is_admin)}"
                 = nbsp + "Administrateur"
+            - user.errors.full_messages_for(:is_admin).each do |message|
+              p.help.is-danger = message
       footer.card-footer
         .field.is-grouped.is-grouped-right.card-footer-item
           .control
