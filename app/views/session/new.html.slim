@@ -1,0 +1,18 @@
+.column.is-half.is-offset-one-quarter
+  .card
+    = form_with(url: login_path, local: true) do |form|
+      .card-content
+        .content
+          .field
+            = form.label :email, "Mail", class: "label"
+            .control
+              = form.email_field :email, class: "input"
+          .field
+            = form.label :password, "Mot de passe", class: "label"
+            .control
+              = form.password_field :password, class: "input"
+      footer.card-footer
+        .field.is-grouped.is-grouped-right.card-footer-item
+          .control
+            = form.button class: "button is-link"
+              = icon_text("fas fa-sign-in-alt", "Connexion")

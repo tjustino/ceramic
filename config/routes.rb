@@ -24,4 +24,10 @@ Rails.application.routes.draw do
   resources :products,                   only: [:show]
   post "products/:id/to_cart(.:format)", to: "products#to_cart", as: "to_cart"
   get  "search",                         to: "search#index"
+
+  controller :session do
+    get    "login"  => :new
+    post   "login"  => :create
+    delete "logout" => :destroy
+  end
 end
