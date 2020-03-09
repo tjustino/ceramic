@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :legals
   # For details on the DSL, see https://guides.rubyonrails.org/routing.html
 
   ######################################################################## admin

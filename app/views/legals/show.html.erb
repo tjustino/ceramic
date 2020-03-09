@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @legal.title %>
+</p>
+
+<%= @legal.content %>
+
+<%= link_to 'Edit', edit_legal_path(@legal) %> |
+<%= link_to 'Back', legals_path %>
