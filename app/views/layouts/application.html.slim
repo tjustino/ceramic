@@ -25,12 +25,6 @@ html
     / messages
     section.section
       .container
-        / banner
-        - if @banners.present?
-          - @banners.each do |banner|
-            .notification.is-info.is-light
-              button.delete
-              = banner.message
         / flash
         - if flash[:alert]
           .notification.is-danger
@@ -44,6 +38,12 @@ html
           .notification.is-success
             button.delete
             = flash[:notice]
+        / banner
+        - if @banners.present?
+          - @banners.each do |banner|
+            .notification.is-info.is-light
+              button.delete
+              = banner.message
         / here we are baby
         = yield
 
