@@ -1,0 +1,16 @@
+.columns.is-centered
+  .column
+    .card
+      = form_with(model: static, local: true) do |form|
+        .card-content
+          .content
+            .field
+              = form.hidden_field :page, value: static.page
+              = form.rich_text_area :content
+        footer.card-footer
+          .field.is-grouped.is-grouped-right.card-footer-item
+            .control
+              = form.button class: "button is-link"
+                = icon_text("fas fa-save", "Enregistrement")
+            .control
+              = link_to "Retour arrière", statics_path, class: "button is-link is-light"

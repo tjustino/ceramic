@@ -1,0 +1,9 @@
+= render partial: "admin/breadcrumb",
+         locals: { \
+           previous_nav_text: "Pages statiques",
+           previous_nav_link: statics_path,
+           current_nav_text:  icon_text("far fa-edit", "Édition de la page statique"),
+           current_nav_link:  edit_static_path(@static) \
+         }
+
+= render partial: "form", locals: { static: @static }

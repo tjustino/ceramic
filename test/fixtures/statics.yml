@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: statics
+#
+#  id         :integer          not null, primary key
+#  page       :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+terms:
+  page: 0
+  #is_hidden: false
+
+privacy:
+  page: 1
+  #is_hidden: false
+
+gallery:
+  page: 2
+  #is_hidden: false
+
+whoami:
+  page: 3
+  #is_hidden: false

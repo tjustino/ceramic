@@ -8,3 +8,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Matrix' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Static.pages.each_value { |page_value| Static.create(page: page_value) }

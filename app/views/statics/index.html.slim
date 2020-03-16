@@ -1,0 +1,16 @@
+= render partial: "admin/breadcrumb",
+                  locals: { \
+                    current_nav_text: "Pages statiques",
+                    current_nav_link: statics_path \
+                  }
+
+table.table.is-striped.is-fullwidth
+  thead
+    tr
+      th Page
+      th colspan="1"
+  tbody
+    - @statics.each do |static|
+      tr
+        td = static.page
+        td = link_to icon_text("far fa-edit", "Éditer"), edit_static_path(static)
