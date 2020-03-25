@@ -8,7 +8,7 @@
 #  name        :string           not null
 #  description :text
 #  price       :decimal(8, 2)    not null
-#  is_promoted :boolean          default("0")
+#  is_promoted :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
