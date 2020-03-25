@@ -2,6 +2,8 @@
 
 # Users Controller
 class UsersController < ApplicationController
+  # before_action :restrict_access
+  before_action :set_current_user, only: %i[edit]
   before_action :set_user, only: %i[edit update destroy]
 
   # GET /users
