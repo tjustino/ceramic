@@ -1,4 +1,31 @@
-# one:
-#   record: name_of_fixture (ClassOfFixture)
-#   name: content
-#   body: <p>In a <i>million</i> stars!</p>
+terms_rich_text:
+  record: terms (Static)
+  name: content
+  body:
+    <h1>Terms</h1>
+    <p><%= ActiveRecord::FixtureSet.identify(:terms_embed_image) %></p>
+    <p>Cras bibendum tortor eget feugiat imperdiet.</p>
+
+privacy_rich_text:
+  record: privacy (Static)
+  name: content
+  body:
+    <h1>Privacy</h1>
+    <p><%= ActiveRecord::FixtureSet.identify(:privacy_embed_image) %></p>
+    <p>Phasellus eu tortor interdum, fermentum nibh nec, fermentum velit.</p>
+
+gallery_rich_text:
+  record: gallery (Static)
+  name: content
+  body:
+    <h1>Gallery</h1>
+    <p><%= ActiveRecord::FixtureSet.identify(:gallery_embed_image) %></p>
+    <p>Mauris iaculis non dolor et eleifend.</p>
+
+whoami_rich_text:
+  record: whoami (Static)
+  name: content
+  body:
+    <h1>Who Am I</h1>
+    <p><%= ActiveRecord::FixtureSet.identify(:whoami_embed_image) %></p>
+    <p>Quisque quis ornare massa, ac semper nisl.</p>
