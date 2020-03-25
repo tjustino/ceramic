@@ -1,0 +1,10 @@
+# load all jpg in test/fixtures/files
+<% Dir.glob("test/fixtures/files/*.jpg").each do |file| %>
+<%= File.basename(file, ".jpg") %>_image:
+  key: <%= ActiveStorage::Blob.generate_unique_secure_token %>
+  filename: <%= File.basename(file) %>
+  content_type: image/jpeg
+  metadata: '{"identified":true, "analyzed":true}'
+  byte_size: <%= File.size(file) %>
+  checksum: <%= Digest::MD5.file(file).base64digest %>
+<% end %>

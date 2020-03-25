@@ -1,0 +1,25 @@
+terms_embed_image:
+  name: embeds
+  record_type: ActionText::RichText
+  record: terms_rich_text
+  blob: cup_image
+
+privacy_embed_image:
+  name: embeds
+  record_type: ActionText::RichText
+  record: privacy_rich_text
+  blob: fruits_image
+
+gallery_embed_image:
+  name: embeds
+  record_type: ActionText::RichText
+  record: gallery_rich_text
+  blob: hands_image
+
+whoami_embed_image:
+  name: embeds
+  record_type: ActionText::RichText
+  record: whoami_rich_text
+  blob: hearts_image
+
+# honey_image
