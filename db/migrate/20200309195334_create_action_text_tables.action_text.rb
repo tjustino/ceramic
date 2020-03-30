@@ -1,4 +1,6 @@
-# This migration comes from action_text (originally 20180528164100)
+# frozen_string_literal: true
+
+# Create Action Text Tables
 class CreateActionTextTables < ActiveRecord::Migration[6.0]
   def change
     create_table :action_text_rich_texts do |t|
@@ -8,7 +10,9 @@ class CreateActionTextTables < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      t.index [ :record_type, :record_id, :name ], name: "index_action_text_rich_texts_uniqueness", unique: true
+      t.index %i[record_type record_id name],
+              name:   "index_action_text_rich_texts_uniqueness",
+              unique: true
     end
   end
 end
