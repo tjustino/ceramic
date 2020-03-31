@@ -12,7 +12,7 @@ class SessionController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_url, notice: "Connexion réussie"
+      redirect_to desired_path, notice: "Connexion réussie"
     else
       redirect_to login_url, alert: "Mauvaise combinaison mail / mot de passe"
     end
@@ -23,4 +23,10 @@ class SessionController < ApplicationController
     session[:user_id] = nil
     redirect_back fallback_location: root_url, notice: "Déconnexion réussie"
   end
+
+  private
+
+    def desired_path
+      session[:desired_path].present? ? session[:desired_path] : root_path
+    end
 end
