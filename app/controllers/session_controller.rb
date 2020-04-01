@@ -27,6 +27,6 @@ class SessionController < ApplicationController
   private
 
     def desired_path
-      session[:desired_path].present? ? session[:desired_path] : root_path
+      session[:desired_path].presence || root_path
     end
 end

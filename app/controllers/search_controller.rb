@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Search Controller
 class SearchController < ApplicationController
   include Banners
   include CurrentCart

@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
+# Products Controller
 class ProductsController < ApplicationController
   include Banners
   include CurrentCart
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :to_cart]
-  before_action :set_cart, only: [:to_cart]
-  before_action :load_banners, only: [:show]
+  before_action :set_product, only: %i[show edit update destroy to_cart]
+  before_action :set_cart, only: %i[to_cart]
+  before_action :load_banners, only: %i[show]
 
   # GET /products
   def index
@@ -11,8 +14,7 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1
-  def show
-  end
+  def show; end
 
   # GET /products/new
   def new
@@ -20,15 +22,14 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /products
   def create
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to @product, notice: 'Product was successfully created.'
+      redirect_to @product, notice: "Product was successfully created."
     else
       render :new
     end
@@ -37,7 +38,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: 'Product was successfully updated.'
+      redirect_to @product, notice: "Product was successfully updated."
     else
       render :edit
     end
@@ -46,7 +47,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   def destroy
     @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
+    redirect_to products_url, notice: "Product was successfully destroyed."
   end
 
   # POST /products/1/to_cart
@@ -55,7 +56,8 @@ class ProductsController < ApplicationController
     redirect_to cart_url(@cart), notice: "Ajouté au panier !"
   end
 
-  private
+  private ######################################################################
+
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])

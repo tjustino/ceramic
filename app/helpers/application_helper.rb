@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Application Helper
 module ApplicationHelper
   def nbsp
     [160].pack("U*")

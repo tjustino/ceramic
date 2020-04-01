@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Banners Controller
 class BannersController < ApplicationController
-  before_action :set_banner, only: [:show, :edit, :update, :destroy]
+  before_action :set_banner, only: %i[show edit update destroy]
 
   # GET /banners
   def index
@@ -7,8 +10,7 @@ class BannersController < ApplicationController
   end
 
   # GET /banners/1
-  def show
-  end
+  def show; end
 
   # GET /banners/new
   def new
@@ -16,15 +18,14 @@ class BannersController < ApplicationController
   end
 
   # GET /banners/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /banners
   def create
     @banner = Banner.new(banner_params)
 
     if @banner.save
-      redirect_to @banner, notice: 'Banner was successfully created.'
+      redirect_to @banner, notice: "Banner was successfully created."
     else
       render :new
     end
@@ -33,7 +34,7 @@ class BannersController < ApplicationController
   # PATCH/PUT /banners/1
   def update
     if @banner.update(banner_params)
-      redirect_to @banner, notice: 'Banner was successfully updated.'
+      redirect_to @banner, notice: "Banner was successfully updated."
     else
       render :edit
     end
@@ -42,10 +43,11 @@ class BannersController < ApplicationController
   # DELETE /banners/1
   def destroy
     @banner.destroy
-    redirect_to banners_url, notice: 'Banner was successfully destroyed.'
+    redirect_to banners_url, notice: "Banner was successfully destroyed."
   end
 
-  private
+  private ######################################################################
+
     # Use callbacks to share common setup or constraints between actions.
     def set_banner
       @banner = Banner.find(params[:id])

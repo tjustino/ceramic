@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+# Carts Controller
 class CartsController < ApplicationController
   include Banners
   include CurrentCart
-  before_action :set_cart,     only: [:show, :edit, :update, :destroy]
-  before_action :load_banners, only: [:show]
+  before_action :set_cart,     only: %i[show edit update destroy]
+  before_action :load_banners, only: %i[show]
 
   # GET /carts
   def index
@@ -10,8 +13,7 @@ class CartsController < ApplicationController
   end
 
   # GET /carts/1
-  def show
-  end
+  def show; end
 
   # GET /carts/new
   def new
@@ -19,15 +21,14 @@ class CartsController < ApplicationController
   end
 
   # GET /carts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /carts
   def create
     @cart = Cart.new(cart_params)
 
     if @cart.save
-      redirect_to @cart, notice: 'Cart was successfully created.'
+      redirect_to @cart, notice: "Cart was successfully created."
     else
       render :new
     end
@@ -36,7 +37,7 @@ class CartsController < ApplicationController
   # PATCH/PUT /carts/1
   def update
     if @cart.update(cart_params)
-      redirect_to @cart, notice: 'Cart was successfully updated.'
+      redirect_to @cart, notice: "Cart was successfully updated."
     else
       render :edit
     end
@@ -45,10 +46,11 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   def destroy
     @cart.destroy
-    redirect_to carts_url, notice: 'Cart was successfully destroyed.'
+    redirect_to carts_url, notice: "Cart was successfully destroyed."
   end
 
-  private
+  private ######################################################################
+
     # Only allow a trusted parameter "white list" through.
     def cart_params
       params.fetch(:cart, {})

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Home Controller
 class HomeController < ApplicationController
   include Banners
   include CurrentCart
@@ -6,7 +9,8 @@ class HomeController < ApplicationController
 
   # GET /
   def index
-    @meta_tags = MetaTag.where(id: Tag.select(:meta_tag_id).distinct).order(:name)
+    @meta_tags = MetaTag.where(id: Tag.select(:meta_tag_id).distinct)
+                        .order(:name)
     @promoted_products = Product.promoted.order(:name)
   end
 
