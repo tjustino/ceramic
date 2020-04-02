@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
+# Carts Test
 class CartsTest < ApplicationSystemTestCase
   setup do
     @cart = carts(:one)

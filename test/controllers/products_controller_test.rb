@@ -1,5 +1,8 @@
-require 'test_helper'
+# frozen_string_literal: true
 
+require "test_helper"
+
+# Products Controller Test
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:one)
@@ -16,8 +19,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create product" do
-    assert_difference('Product.count') do
-      post products_url, params: { product: { decription: @product.decription, is_promoted: @product.is_promoted, name: @product.name, price: @product.price } }
+    assert_difference("Product.count") do
+      post products_url, params: {
+        product: {
+          decription: @product.decription, is_promoted: @product.is_promoted,
+          name: @product.name, price: @product.price
+        }
+      }
     end
 
     assert_redirected_to product_url(Product.last)
@@ -34,12 +42,17 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { decription: @product.decription, is_promoted: @product.is_promoted, name: @product.name, price: @product.price } }
+    patch product_url(@product), params: {
+      product: {
+        decription: @product.decription, is_promoted: @product.is_promoted,
+        name: @product.name, price: @product.price
+      }
+    }
     assert_redirected_to product_url(@product)
   end
 
   test "should destroy product" do
-    assert_difference('Product.count', -1) do
+    assert_difference("Product.count", -1) do
       delete product_url(@product)
     end
 

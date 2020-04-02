@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
+# Meta Tags Test
 class MetaTagsTest < ApplicationSystemTestCase
   setup do
     @meta_tag = meta_tags(:one)

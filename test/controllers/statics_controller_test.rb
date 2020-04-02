@@ -1,5 +1,8 @@
-require 'test_helper'
+# frozen_string_literal: true
 
+require "test_helper"
+
+# Statics Controller Test
 class StaticsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @static = statics(:one)
@@ -16,7 +19,7 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create static" do
-    assert_difference('Static.count') do
+    assert_difference("Static.count") do
       post statics_url, params: { static: { page: @static.page } }
     end
 
@@ -39,7 +42,7 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy static" do
-    assert_difference('Static.count', -1) do
+    assert_difference("Static.count", -1) do
       delete static_url(@static)
     end
 

@@ -1,5 +1,8 @@
-require 'test_helper'
+# frozen_string_literal: true
 
+require "test_helper"
+
+# Banners Controller Test
 class BannersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @banner = banners(:one)
@@ -16,8 +19,10 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create banner" do
-    assert_difference('Banner.count') do
-      post banners_url, params: { banner: { end: @banner.end, message: @banner.message, start: @banner.start } }
+    assert_difference("Banner.count") do
+      post banners_url, params: { banner: {
+        end: @banner.end, message: @banner.message, start: @banner.start
+      } }
     end
 
     assert_redirected_to banner_url(Banner.last)
@@ -34,12 +39,14 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update banner" do
-    patch banner_url(@banner), params: { banner: { end: @banner.end, message: @banner.message, start: @banner.start } }
+    patch banner_url(@banner), params: { banner: {
+      end: @banner.end, message: @banner.message, start: @banner.start
+    } }
     assert_redirected_to banner_url(@banner)
   end
 
   test "should destroy banner" do
-    assert_difference('Banner.count', -1) do
+    assert_difference("Banner.count", -1) do
       delete banner_url(@banner)
     end
 

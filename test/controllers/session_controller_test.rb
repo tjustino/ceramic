@@ -1,5 +1,8 @@
-require 'test_helper'
+# frozen_string_literal: true
 
+require "test_helper"
+
+# Session Controller Test
 class SessionControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
     get session_new_url
@@ -15,5 +18,4 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
   #   get session_destroy_url
   #   assert_response :success
   # end
-
 end

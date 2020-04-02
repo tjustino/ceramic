@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
+# Banners Test
 class BannersTest < ApplicationSystemTestCase
   setup do
     @banner = banners(:one)

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
+# Products Test
 class ProductsTest < ApplicationSystemTestCase
   setup do
     @product = products(:one)

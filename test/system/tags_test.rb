@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
+# Tags Test
 class TagsTest < ApplicationSystemTestCase
   setup do
     @tag = tags(:one)

@@ -1,5 +1,8 @@
-require 'test_helper'
+# frozen_string_literal: true
 
+require "test_helper"
+
+# Tags Controller Test
 class TagsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @tag = tags(:one)
@@ -16,8 +19,10 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create tag" do
-    assert_difference('Tag.count') do
-      post tags_url, params: { tag: { meta_tag_id: @tag.meta_tag_id, name: @tag.name } }
+    assert_difference("Tag.count") do
+      post tags_url, params: {
+        tag: { meta_tag_id: @tag.meta_tag_id, name: @tag.name }
+      }
     end
 
     assert_redirected_to tag_url(Tag.last)
@@ -34,12 +39,14 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update tag" do
-    patch tag_url(@tag), params: { tag: { meta_tag_id: @tag.meta_tag_id, name: @tag.name } }
+    patch tag_url(@tag), params: {
+      tag: { meta_tag_id: @tag.meta_tag_id, name: @tag.name }
+    }
     assert_redirected_to tag_url(@tag)
   end
 
   test "should destroy tag" do
-    assert_difference('Tag.count', -1) do
+    assert_difference("Tag.count", -1) do
       delete tag_url(@tag)
     end
 

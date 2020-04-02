@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
+# Users Test
 class UsersTest < ApplicationSystemTestCase
   setup do
     @user = users(:one)
