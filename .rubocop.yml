@@ -7,8 +7,15 @@ require:
   - rubocop-rake
 
 # Preferences
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
 
 Style/HashEachMethods:
   Enabled: true
@@ -19,9 +26,8 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
-Layout/HashAlignment:
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 
 # # Specific to my eccentric comments
 # Layout/ExtraSpacing:
