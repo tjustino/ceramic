@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "2.7.1"
 
 gem "bcrypt"                    # Use ActiveModel has_secure_password
 gem "bootsnap", require: false  # Reduces boot times through caching
