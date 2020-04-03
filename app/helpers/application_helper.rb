@@ -11,27 +11,30 @@ module ApplicationHelper
   end
 
   def icon_text(icon, text)
-    content_tag(:i, nil, class: icon) + nbsp + text
+    safe_join([single_icon(icon), text], nbsp)
   end
 
   def text_icon(text, icon)
-    (text + nbsp + content_tag(:i, nil, class: icon)).html_safe
+    safe_join([text, single_icon(icon)], nbsp)
   end
 
   def icon_text_icon(first_icon, text, second_icon = nil)
     second_icon = first_icon if second_icon.nil?
-    content_tag(:i, nil, class: first_icon) + nbsp + text +
-      nbsp + content_tag(:i, nil, class: second_icon)
+    safe_join([single_icon(first_icon), text, single_icon(second_icon)], nbsp)
   end
 
   def line_break(product_tags)
     product_tags = product_tags.order(:name)
-    list_of_tags = product_tags.first.name
+    list_of_tags = [product_tags.first.name]
 
     product_tags.offset(1).each do |product_tag|
-      list_of_tags << tag.br + product_tag.name
+      list_of_tags << product_tag.name
     end
 
-    list_of_tags
+    safe_join(list_of_tags, tag.br)
+  end
+
+  def abbreviation(acronym, definition)
+    content_tag(:abbr, acronym, title: definition)
   end
 end

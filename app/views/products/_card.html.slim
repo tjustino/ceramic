@@ -8,7 +8,7 @@
             - if product.tags.any?
               .ribbon
                 h2
-                  = line_break(product.tags).html_safe
+                  = line_break(product.tags)
         .card-content
           .content = truncate(product.description, length: 100)
         .card-footer

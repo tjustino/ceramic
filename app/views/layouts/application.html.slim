@@ -56,7 +56,7 @@ html
             h4.has-text-white Mentions légales
             ul.has-text-white
               li = mail_to "contact@ceramimique.fr", "Contact", class: "has-text-white"
-              li = link_to "<abbr title='Conditions Générales de Vente'>CGV</abbr>".html_safe, static_path(Static.terms.first), class: "has-text-white"
+              li = link_to abbreviation("CGV", "Conditions Générales de Vente"), static_path(Static.terms.first), class: "has-text-white"
               li = link_to "Politique de confidentialité", static_path(Static.privacy.first), class: "has-text-white"
         .column
           = image_tag asset_pack_path("media/images/walking_cocotte.svg"), class: "invert-color"
