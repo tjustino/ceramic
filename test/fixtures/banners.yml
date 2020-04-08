@@ -13,7 +13,7 @@
 past_month:
   message: Past month's message
   start: <%= DateTime.current.beginning_of_month - 1.month %>
-  end: <%= DateTime.current.beginning_of_month - 1.day %>
+  end: <%= (DateTime.current.beginning_of_month - 1.month).end_of_month %>
 
 current_month:
   message: Current month's message
@@ -23,4 +23,4 @@ current_month:
 next_month:
   message: Next month's message
   start: <%= DateTime.current.beginning_of_month + 1.month %>
-  end: <%= DateTime.current.beginning_of_month + 1.day %>
+  end: <%= (DateTime.current.beginning_of_month + 1.month).end_of_month %>
