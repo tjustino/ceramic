@@ -25,7 +25,7 @@ class BannersController < ApplicationController
     @banner = Banner.new(banner_params)
 
     if @banner.save
-      redirect_to @banner, notice: notice_message("créée")
+      redirect_to banners_url, notice: notice_message("créée")
     else
       render :new
     end
@@ -34,7 +34,7 @@ class BannersController < ApplicationController
   # PATCH/PUT /banners/1
   def update
     if @banner.update(banner_params)
-      redirect_to @banner, notice: notice_message("mise à jour")
+      redirect_to banners_url, notice: notice_message("mise à jour")
     else
       render :edit
     end
