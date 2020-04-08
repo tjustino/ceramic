@@ -41,7 +41,7 @@ html
             button.delete
             = flash[:notice]
         / banner
-        - if @banners.present?
+        - if @banners.present? and params[:controller] != "banners"
           - @banners.each do |banner|
             .notification.is-info.is-light
               button.delete

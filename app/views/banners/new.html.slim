@@ -1,0 +1,9 @@
+= render partial: "admin/breadcrumb",
+         locals: { \
+           previous_nav_text: "Bannières",
+           previous_nav_link: banners_path,
+           current_nav_text:  icon_text("fas fa-plus-circle", "Nouvelle bannière"),
+           current_nav_link:  new_banner_path \
+         }
+
+= render partial: "form", locals: { banner: @banner }

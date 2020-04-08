@@ -1,0 +1,36 @@
+.column.is-half.is-offset-one-quarter
+  .card
+    = form_with(model: banner, local: true) do |form|
+      .card-content
+        .content
+          .field
+            = form.label :message, "Message", class: "label"
+            .control
+              = form.text_area :message, \
+                               class: "textarea  #{'is-danger' if banner.errors.include?(:message)}", \
+                               placeholder: "Message"
+            - banner.errors.full_messages_for(:message).each do |message|
+              p.help.is-danger = message
+          .field
+            = form.label :start, "Début", class: "label"
+            .control
+              = form.date_field :start, \
+                                class: "input  #{'is-danger' if banner.errors.include?(:start)}", \
+                                value: banner.start.nil? ? Date.today : banner.start
+            - banner.errors.full_messages_for(:start).each do |message|
+              p.help.is-danger = message
+          .field
+            = form.label :end, "Fin", class: "label"
+            .control
+              = form.date_field :end, \
+                                class: "input  #{'is-danger' if banner.errors.include?(:end)}", \
+                                value: banner.end.nil? ? Date.today : banner.end
+            - banner.errors.full_messages_for(:end).each do |message|
+              p.help.is-danger = message
+      footer.card-footer
+        .field.is-grouped.is-grouped-right.card-footer-item
+          .control
+            = form.button class: "button is-link"
+              = icon_text("fas fa-save", "Enregistrement")
+          .control
+            = link_to "Retour arrière", banners_path, class: "button is-link is-light"

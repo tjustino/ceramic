@@ -1,0 +1,27 @@
+= render partial: "admin/breadcrumb",
+                  locals: { \
+                    current_nav_text: "Bannières",
+                    current_nav_link: banners_path,
+                    new_button_text:  "Nouvelle bannière",
+                    new_button_link:  new_banner_path \
+                  }
+
+table.table.is-striped.is-fullwidth
+  thead
+    tr
+      th Bannières
+      th Début
+      th Fin
+      th colspan="3"
+  tbody
+    - @banners.each do |banner|
+      tr
+        td = truncate(banner.message, length: 30)
+        td = l(banner.start)
+        td = l(banner.end)
+        td = link_to icon_text("far fa-eye", "Visualiser"), banner
+        td = link_to icon_text("far fa-edit", "Éditer"), edit_banner_path(banner)
+        td = link_to icon_text("fas fa-trash", "Supprimer"), \
+                     banner, \
+                     method: :delete, \
+                     data: { confirm: "Êtes-vous certain de vouloir supprimer cette bannière ?" }

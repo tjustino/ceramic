@@ -1,0 +1,20 @@
+= render partial: "admin/breadcrumb",
+         locals: { \
+           previous_nav_text: "Bannières",
+           previous_nav_link: banners_path,
+           current_nav_text:  icon_text("far fa-eye", "Visualisation de la bannière"),
+           current_nav_link:  @banner \
+         }
+
+.notification.is-info.is-light
+  button.delete
+  = @banner.message
+
+table.table.is-bordered
+  tbody
+    tr
+      td Début :
+      td = l(@banner.start)
+    tr
+      td Fin :
+      td = l(@banner.end)
