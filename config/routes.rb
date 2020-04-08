@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   resources :carts, only: [:show]
   resources :users, only: %i[new create edit update destroy]
   root "home#index"
-  # get  "whoami",                         to: "home#whoami"
-  # get  "gallery",                        to: "home#gallery"
   resources :products,                   only: [:show]
   post "products/:id/to_cart(.:format)", to: "products#to_cart", as: "to_cart"
   get  "search",                         to: "search#index"
