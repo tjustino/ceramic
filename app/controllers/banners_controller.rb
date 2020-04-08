@@ -6,7 +6,7 @@ class BannersController < ApplicationController
 
   # GET /banners
   def index
-    @banners = Banner.all
+    @banners = Banner.all.order(:start)
   end
 
   # GET /banners/1
@@ -25,7 +25,7 @@ class BannersController < ApplicationController
     @banner = Banner.new(banner_params)
 
     if @banner.save
-      redirect_to @banner, notice: "Banner was successfully created."
+      redirect_to @banner, notice: notice_message("créée")
     else
       render :new
     end
@@ -34,7 +34,7 @@ class BannersController < ApplicationController
   # PATCH/PUT /banners/1
   def update
     if @banner.update(banner_params)
-      redirect_to @banner, notice: "Banner was successfully updated."
+      redirect_to @banner, notice: notice_message("mise à jour")
     else
       render :edit
     end
@@ -42,8 +42,12 @@ class BannersController < ApplicationController
 
   # DELETE /banners/1
   def destroy
-    @banner.destroy
-    redirect_to banners_url, notice: "Banner was successfully destroyed."
+    if @banner.destroy
+      redirect_to banners_url, notice: notice_message("supprimée")
+    else
+      redirect_to banners_url,
+                  warning: "Impossible de surpprimer la bannière."
+    end
   end
 
   private ######################################################################
@@ -56,5 +60,9 @@ class BannersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def banner_params
       params.require(:banner).permit(:message, :start, :end)
+    end
+
+    def notice_message(action)
+      "La bannière a été #{action}."
     end
 end
