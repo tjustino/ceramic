@@ -14,5 +14,9 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    def login_as(user)
+      post login_url,
+           params: { email: users(user).email, password: "p@ssw0rd!" }
+    end
   end
 end
