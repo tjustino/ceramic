@@ -2,7 +2,8 @@
 
 # Tags Controller
 class TagsController < ApplicationController
-  before_action :set_tag, only: %i[edit update destroy]
+  before_action :restrict_access
+  before_action :set_tag,       only: %i[edit update destroy]
   before_action :set_meta_tags, only: %i[index new edit create update]
 
   # GET /tags

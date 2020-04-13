@@ -2,6 +2,7 @@
 
 # Banners Controller
 class BannersController < ApplicationController
+  before_action :restrict_access
   before_action :set_banner, only: %i[show edit update destroy]
 
   # GET /banners

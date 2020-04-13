@@ -2,6 +2,7 @@
 
 # MetaTags Controller
 class MetaTagsController < ApplicationController
+  before_action :restrict_access
   before_action :set_meta_tag, only: %i[edit update destroy]
 
   # GET /meta_tags

@@ -2,10 +2,12 @@
 
 # Carts Controller
 class CartsController < ApplicationController
+  before_action :restrict_access, only: %i[index new create]
+
   include Banners
-  include CurrentCart
-  before_action :set_cart,     only: %i[show edit update destroy]
   before_action :load_banners, only: %i[show]
+  # include CurrentCart
+  # before_action :set_cart,     only: %i[show edit update destroy]
 
   # GET /carts
   def index

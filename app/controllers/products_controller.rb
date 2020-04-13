@@ -2,11 +2,15 @@
 
 # Products Controller
 class ProductsController < ApplicationController
+  before_action :restrict_access, except: %i[show to_cart]
+
   include Banners
-  include CurrentCart
-  before_action :set_product, only: %i[show edit update destroy to_cart]
-  before_action :set_cart, only: %i[to_cart]
   before_action :load_banners, only: %i[show]
+
+  # include CurrentCart
+  # before_action :set_cart, only: %i[to_cart]
+
+  before_action :set_product, only: %i[show edit update destroy to_cart]
 
   # GET /products
   def index
