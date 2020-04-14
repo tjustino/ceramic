@@ -7,6 +7,7 @@ class SearchController < ApplicationController
   before_action :load_banners, only: [:index]
   before_action :set_cart
 
+  # GET /search
   def index
     if params[:tag]
       begin
