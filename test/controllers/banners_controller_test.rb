@@ -72,14 +72,14 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect create as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
-      assert_no_difference("Banner.count") { post_create(@banner) }
+      assert_no_difference("Banner.count") { post_create }
       assert_redirected_to login_url
     end
   end
 
   test "should create banner as admin" do
     login_as(:admin)
-    assert_difference("Banner.count", +1) { post_create(@banner) }
+    assert_difference("Banner.count", +1) { post_create }
     assert_redirected_to banners_url
   end
 
@@ -117,9 +117,9 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
 
   private ######################################################################
 
-    def post_create(banner)
+    def post_create
       post banners_url, params: { banner: {
-        end: banner.end, message: banner.message, start: banner.start
+        message: SecureRandom.hex, start: Date.yesterday, end: Date.tomorrow
       } }
     end
 
