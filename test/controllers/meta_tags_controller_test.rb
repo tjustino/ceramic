@@ -57,14 +57,18 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect create as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
-      assert_no_difference("MetaTag.count") { post_create }
+      assert_no_difference("MetaTag.count") do
+        post meta_tags_url, params: meta_tag_params
+      end
       assert_redirected_to login_url
     end
   end
 
   test "should create meta_tag as admin" do
     login_as(:admin)
-    assert_difference("MetaTag.count", +1) { post_create }
+    assert_difference("MetaTag.count", +1) do
+      post meta_tags_url, params: meta_tag_params
+    end
     assert_redirected_to meta_tags_url
   end
 
@@ -72,7 +76,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
-      patch_update(@meta_tag)
+      patch meta_tag_url(@meta_tag), params: meta_tag_params
       assert_redirected_to login_url
       assert_equal @meta_tag.name, @meta_tag.reload.name
     end
@@ -80,7 +84,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update meta_tag as admin" do
     login_as(:admin)
-    patch_update(@meta_tag)
+    patch meta_tag_url(@meta_tag), params: meta_tag_params
     assert_redirected_to meta_tags_url
     assert_not_equal @meta_tag.name, @meta_tag.reload.name
   end
@@ -104,13 +108,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
 
   private ######################################################################
 
-    def post_create
-      post meta_tags_url, params: { meta_tag: { name: SecureRandom.hex } }
-    end
-
-    def patch_update(meta_tag)
-      patch meta_tag_url(meta_tag), params: {
-        meta_tag: { name: SecureRandom.hex }
-      }
+    def meta_tag_params
+      { meta_tag: { name: SecureRandom.hex } }
     end
 end
