@@ -4,8 +4,12 @@ require "test_helper"
 
 # Search Controller Test
 class SearchControllerTest < ActionDispatch::IntegrationTest
+  ################################################################## GET /search
   test "should get index" do
-    get search_index_url
-    assert_response :success
+    %i[visitor customer admin].each do |any_user|
+      login_as(any_user)
+      get search_url
+      assert_response :success
+    end
   end
 end
