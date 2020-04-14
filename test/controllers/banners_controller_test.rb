@@ -72,14 +72,18 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect create as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
-      assert_no_difference("Banner.count") { post_create }
+      assert_no_difference("Banner.count") do
+        post banners_url, params: banner_params
+      end
       assert_redirected_to login_url
     end
   end
 
   test "should create banner as admin" do
     login_as(:admin)
-    assert_difference("Banner.count", +1) { post_create }
+    assert_difference("Banner.count", +1) do
+      post banners_url, params: banner_params
+    end
     assert_redirected_to banners_url
   end
 
@@ -87,7 +91,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
-      patch_update(@banner)
+      patch banner_url(@banner), params: banner_params
       assert_redirected_to login_url
       assert_equal @banner.message, @banner.reload.message
     end
@@ -95,7 +99,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
 
   test "should update banner as admin" do
     login_as(:admin)
-    patch_update(@banner)
+    patch banner_url(@banner), params: banner_params
     assert_redirected_to banners_url
     assert_not_equal @banner.message, @banner.reload.message
   end
@@ -117,15 +121,9 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
 
   private ######################################################################
 
-    def post_create
-      post banners_url, params: { banner: {
+    def banner_params
+      { banner: {
         message: SecureRandom.hex, start: Date.yesterday, end: Date.tomorrow
-      } }
-    end
-
-    def patch_update(banner)
-      patch banner_url(banner), params: { banner: {
-        message: SecureRandom.hex, start: banner.start, end: banner.end
       } }
     end
 end
