@@ -7,5 +7,6 @@ class AdminController < ApplicationController
   # include CurrentCart
   # before_action :set_cart, only: [:index]
 
+  # GET /admin
   def index; end
 end

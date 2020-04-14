@@ -4,6 +4,7 @@ require "test_helper"
 
 # Admin Controller Test
 class AdminControllerTest < ActionDispatch::IntegrationTest
+  ################################################################### GET /admin
   test "should redirect index as regular" do
     get admin_url
     assert_redirected_to login_url
