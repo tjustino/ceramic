@@ -15,10 +15,10 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
     def login_as(user)
-      unless user == :visitor
-        post login_url,
-             params: { email: users(user).email, password: "p@ssw0rd!" }
-      end
+      return if user == :visitor
+
+      post login_url,
+           params: { email: users(user).email, password: "p@ssw0rd!" }
     end
   end
 end
