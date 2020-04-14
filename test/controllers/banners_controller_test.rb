@@ -42,7 +42,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect new as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
-      get banner_url(@banner)
+      get new_banner_url
       assert_redirected_to login_url
     end
   end
