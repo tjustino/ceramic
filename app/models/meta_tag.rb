@@ -12,5 +12,5 @@
 class MetaTag < ApplicationRecord
   has_many :tags, dependent: :restrict_with_error
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end
