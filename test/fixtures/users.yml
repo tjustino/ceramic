@@ -24,8 +24,3 @@ customer:
   email: customer@email.com
   password_digest: <%= BCrypt::Password.create('p@ssw0rd!') %>
   is_admin: false
-
-visitor:
-  email: visitor@email.com
-  password_digest: <%= BCrypt::Password.create('p@ssw0rd!') %>
-  is_admin: false
