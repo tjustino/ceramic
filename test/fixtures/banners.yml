@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  message    :text             not null
-#  start      :datetime         not null
-#  end        :datetime         not null
+#  start      :date             not null
+#  end        :date             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
