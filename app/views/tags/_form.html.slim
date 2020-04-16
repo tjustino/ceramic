@@ -12,7 +12,7 @@
                               class: "select  #{'is-danger' if tag.errors.include?(:meta_tag_id)}"
               span.icon.is-small.is-left
                 = single_icon("fas fa-tags")
-            - user.errors.full_messages_for(:meta_tag_id).each do |message|
+            - tag.errors.full_messages_for(:meta_tag_id).each do |message|
               p.help.is-danger = message
           .field
             = form.label :name, "Étiquette", class: "label"
