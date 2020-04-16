@@ -100,6 +100,9 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy meta_tag as admin" do
     login_as(:admin)
+    assert_no_difference("MetaTag.count") { delete meta_tag_url(@meta_tag) }
+    assert_redirected_to meta_tags_url
+
     ProductTagRelation.destroy_all
     @meta_tag.tags.destroy_all
     assert_difference("MetaTag.count", -1) { delete meta_tag_url(@meta_tag) }
