@@ -20,7 +20,7 @@ class StaticsController < ApplicationController
   # PATCH/PUT /statics/1
   def update
     if @static.update(static_params)
-      redirect_to @static, notice: "static was successfully updated."
+      redirect_to statics_url, notice: notice_message("mise à jour")
     else
       render :edit
     end
@@ -36,5 +36,9 @@ class StaticsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def static_params
       params.require(:static).permit(:page, :content)
+    end
+
+    def notice_message(action)
+      "La page statique a été #{action}."
     end
 end
