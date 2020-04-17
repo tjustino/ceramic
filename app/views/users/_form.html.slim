@@ -21,7 +21,7 @@
               = form.password_field :password_confirmation, class: "input  #{'is-danger' if user.errors.include?(:password_confirmation)}"
             - user.errors.full_messages_for(:password_confirmation).each do |message|
               p.help.is-danger = message
-          - if @current_user.is_admin?
+          - if @current_user&.is_admin?
             .field
               .control
                 = form.label :is_admin, class: "checkbox" do
