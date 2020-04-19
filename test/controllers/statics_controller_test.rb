@@ -24,7 +24,6 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
   end
 
   ############################################################### GET /statics/1
-  # https://github.com/rails/rails/issues/38973
   test "should show static" do
     %i[visitor customer admin].each do |any_user|
       login_as(any_user)
