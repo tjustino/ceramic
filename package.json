@@ -6,8 +6,8 @@
     "@rails/actiontext": "^6.0.2-2",
     "@rails/activestorage": "^6.0.2-2",
     "@rails/ujs": "^6.0.2-2",
-    "@rails/webpacker": "^5.0.1",
-    "bulma": "^0.8.1",
+    "@rails/webpacker": "^5.1.0",
+    "bulma": "^0.8.2",
     "trix": "^1.2.3"
   },
   "version": "1.0.0",
