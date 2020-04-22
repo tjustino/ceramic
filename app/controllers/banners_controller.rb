@@ -2,26 +2,27 @@
 
 # Banners Controller
 class BannersController < ApplicationController
-  before_action :restrict_access
+  include RestrictAccess
+  before_action :restrict_to_admin
   before_action :set_banner, only: %i[show edit update destroy]
 
-  # GET /banners
+  # GET /admin/banners
   def index
     @banners = Banner.all.order(:start)
   end
 
-  # GET /banners/1
+  # GET /admin/banners/1
   def show; end
 
-  # GET /banners/new
+  # GET /admin/banners/new
   def new
     @banner = Banner.new
   end
 
-  # GET /banners/1/edit
+  # GET /admin/banners/1/edit
   def edit; end
 
-  # POST /banners
+  # POST /admin/banners
   def create
     @banner = Banner.new(banner_params)
 
@@ -32,7 +33,7 @@ class BannersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /banners/1
+  # PATCH/PUT /admin/banners/1
   def update
     if @banner.update(banner_params)
       redirect_to banners_url, notice: notice_message("mise à jour")
@@ -41,7 +42,7 @@ class BannersController < ApplicationController
     end
   end
 
-  # DELETE /banners/1
+  # DELETE /admin/banners/1
   def destroy
     if @banner.destroy
       redirect_to banners_url, notice: notice_message("supprimée")

@@ -8,7 +8,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
     @meta_tag = meta_tags(:bijoux)
   end
 
-  ############################################################### GET /meta_tags
+  ######################################################### GET /admin/meta_tags
   test "should redirect index as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -23,7 +23,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ########################################################### GET /meta_tags/new
+  ##################################################### GET /admin/meta_tags/new
   test "should redirect new as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -38,7 +38,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ######################################################## GET /meta_tags/1/edit
+  ################################################## GET /admin/meta_tags/1/edit
   test "should redirect edit as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -53,7 +53,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ############################################################## POST /meta_tags
+  ######################################################## POST /admin/meta_tags
   test "should redirect create as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -72,7 +72,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to meta_tags_url
   end
 
-  ####################################################### PATCH/PUT /meta_tags/1
+  ################################################# PATCH/PUT /admin/meta_tags/1
   test "should redirect update as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -89,7 +89,7 @@ class MetaTagsControllerTest < ActionDispatch::IntegrationTest
     assert_not_equal @meta_tag.name, @meta_tag.reload.name
   end
 
-  ########################################################## DELETE /meta_tags/1
+  #################################################### DELETE /admin/meta_tags/1
   test "should redirect destroy as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)

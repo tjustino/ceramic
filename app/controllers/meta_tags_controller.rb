@@ -2,23 +2,24 @@
 
 # MetaTags Controller
 class MetaTagsController < ApplicationController
-  before_action :restrict_access
+  include RestrictAccess
+  before_action :restrict_to_admin
   before_action :set_meta_tag, only: %i[edit update destroy]
 
-  # GET /meta_tags
+  # GET /admin/meta_tags
   def index
     @meta_tags = MetaTag.all.order(:name)
   end
 
-  # GET /meta_tags/new
+  # GET /admin/meta_tags/new
   def new
     @meta_tag = MetaTag.new
   end
 
-  # GET /meta_tags/1/edit
+  # GET /admin/meta_tags/1/edit
   def edit; end
 
-  # POST /meta_tags
+  # POST /admin/meta_tags
   def create
     @meta_tag = MetaTag.new(meta_tag_params)
 
@@ -29,7 +30,7 @@ class MetaTagsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /meta_tags/1
+  # PATCH/PUT /admin/meta_tags/1
   def update
     if @meta_tag.update(meta_tag_params)
       redirect_to meta_tags_url, notice: notice_message("mis à jour")
@@ -38,7 +39,7 @@ class MetaTagsController < ApplicationController
     end
   end
 
-  # DELETE /meta_tags/1
+  # DELETE /admin/meta_tags/1
   def destroy
     if @meta_tag.destroy
       redirect_to meta_tags_url, notice: notice_message("supprimé")

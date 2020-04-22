@@ -8,7 +8,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
     @banner = banners(:current_month)
   end
 
-  ################################################################# GET /banners
+  ########################################################### GET /admin/banners
   test "should redirect index as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -23,7 +23,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ############################################################### GET /banners/1
+  ######################################################### GET /admin/banners/1
   test "should redirect show as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -38,7 +38,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ############################################################# GET /banners/new
+  ####################################################### GET /admin/banners/new
   test "should redirect new as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -53,7 +53,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ########################################################## GET /banners/1/edit
+  #################################################### GET /admin/banners/1/edit
   test "should redirect edit as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -68,7 +68,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ################################################################ POST /banners
+  ########################################################## POST /admin/banners
   test "should redirect create as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -87,7 +87,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to banners_url
   end
 
-  ######################################################### PATCH/PUT /banners/1
+  ################################################### PATCH/PUT /admin/banners/1
   test "should redirect update as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
@@ -104,7 +104,7 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
     assert_not_equal @banner.message, @banner.reload.message
   end
 
-  ############################################################ DELETE /banners/1
+  ###################################################### DELETE /admin/banners/1
   test "should redirect destroy as visitor and customer" do
     %i[visitor customer].each do |not_admin_user|
       login_as(not_admin_user)
