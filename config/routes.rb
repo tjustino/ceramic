@@ -8,18 +8,18 @@ Rails.application.routes.draw do
 
   scope :admin do
     resources :banners
-    resources :carts,     only:   %i[index new create edit update destroy]
+    resources :carts,     only:   %i[index new create edit destroy]
     resources :meta_tags, except: :show
-    resources :products,  only:   %i[index new create edit update destroy]
+    resources :products,  only:   %i[index new create edit destroy]
     resources :statics,   only:   %i[index edit]
     resources :tags,      except: :show
-    resources :users,     only:   :index
+    resources :users,     only:   %i[index create]
   end
 
   ####################################################################### public
-  resources :carts, only: :show
+  resources :carts, only: %i[show update]
   root "home#index"
-  resources :products, only: :show
+  resources :products, only: %i[show update]
   post "products/:id/to_cart(.:format)", to: "products#to_cart", as: "to_cart"
   get  "search",                         to: "search#index"
 
@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   end
 
   resources :statics, only: %i[show update]
-  resources :users,   only: %i[new create edit update destroy]
+  resources :users,   only: %i[new edit update destroy]
 end
