@@ -24,3 +24,8 @@ customer:
   email: customer@email.com
   password_digest: <%= BCrypt::Password.create('p@ssw0rd!') %>
   is_admin: false
+
+other_customer:
+  email: other_customer@email.com
+  password_digest: <%= BCrypt::Password.create('p@ssw0rd!') %>
+  is_admin: false
