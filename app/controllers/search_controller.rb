@@ -3,9 +3,9 @@
 # Search Controller
 class SearchController < ApplicationController
   include Banners
-  include CurrentCart
-  before_action :load_banners, only: [:index]
-  before_action :set_cart
+  # include CurrentCart
+  before_action :load_banners, only: :index
+  # before_action :set_cart
 
   # GET /search
   def index

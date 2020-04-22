@@ -3,8 +3,8 @@
 # Home Controller
 class HomeController < ApplicationController
   include Banners
-  include CurrentCart
-  before_action :set_cart
+  # include CurrentCart
+  # before_action :set_cart
   before_action :load_banners
 
   # GET /

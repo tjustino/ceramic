@@ -2,10 +2,8 @@
 
 # Admin Controller
 class AdminController < ApplicationController
-  before_action :restrict_access
-
-  # include CurrentCart
-  # before_action :set_cart, only: [:index]
+  include RestrictAccess
+  before_action :restrict_to_admin
 
   # GET /admin
   def index; end

@@ -2,8 +2,9 @@
 
 # Statics Controller
 class StaticsController < ApplicationController
-  before_action :restrict_access, except: %i[show]
-  before_action :set_static,      only:   %i[show edit update]
+  include RestrictAccess
+  before_action :restrict_to_admin, except: :show
+  before_action :set_static,        only:   %i[show edit update]
 
   # GET /statics
   def index
