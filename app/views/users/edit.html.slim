@@ -1,10 +1,10 @@
-- if @user.is_admin?
+- if @current_user&.is_admin?
   = render partial: "admin/breadcrumb",
            locals: { \
              previous_nav_text: "Clients",
              previous_nav_link: users_path,
              current_nav_text:  icon_text("far fa-edit", "Édition du client"),
-             current_nav_link:  edit_user_path(@user) \
+             current_nav_link:  edit_user_path(@current_user) \
            }
 
 = render partial: "form", locals: { user: @user }
