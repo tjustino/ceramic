@@ -14,12 +14,7 @@ module RestrictAccess
     end
 
     def restrict_to_customer_and_admin
-      if user_id.nil?
-        redirect_to root_url
-      else
-        yield
-        redirect_to edit_user_url(@current_user) if spoofed_user
-      end
+      user_id.nil? ? redirect_to(root_url) : yield
     end
 
     def restrict_to_visitor_and_admin
@@ -44,6 +39,14 @@ module RestrictAccess
 
     def user_is_admin
       @current_user&.is_admin?
+    end
+
+    def user_is_customer
+      @current_user.present? && !user_is_admin
+    end
+
+    def user_is_visitor
+      user_id.nil?
     end
 
     def store_desired_path
