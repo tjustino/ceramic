@@ -4,23 +4,23 @@
 #
 #  id         :integer          not null, primary key
 #  message    :text             not null
-#  start      :date             not null
-#  end        :date             not null
+#  start_date :date             not null
+#  end_date   :date             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 past_month:
   message: Past month's message
-  start: <%= DateTime.current.beginning_of_month - 1.month %>
-  end: <%= (DateTime.current.beginning_of_month - 1.month).end_of_month %>
+  start_date: <%= DateTime.current.beginning_of_month - 1.month %>
+  end_date: <%= (DateTime.current.beginning_of_month - 1.month).end_of_month %>
 
 current_month:
   message: Current month's message
-  start: <%= DateTime.current.beginning_of_month %>
-  end: <%= DateTime.current.end_of_month %>
+  start_date: <%= DateTime.current.beginning_of_month %>
+  end_date: <%= DateTime.current.end_of_month %>
 
 next_month:
   message: Next month's message
-  start: <%= DateTime.current.beginning_of_month + 1.month %>
-  end: <%= (DateTime.current.beginning_of_month + 1.month).end_of_month %>
+  start_date: <%= DateTime.current.beginning_of_month + 1.month %>
+  end_date: <%= (DateTime.current.beginning_of_month + 1.month).end_of_month %>
