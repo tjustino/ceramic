@@ -13,7 +13,7 @@
 #
 require "test_helper"
 
-# Banner Test
+# Banner Tests
 class BannerTest < ActiveSupport::TestCase
   test "should create banner" do
     banner = Banner.new(message: rand_text, start_date: start_date,
