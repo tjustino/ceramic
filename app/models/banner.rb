@@ -21,9 +21,8 @@ class Banner < ApplicationRecord
 
     def date_consistency
       return if start_date.blank? || end_date.blank?
+      return unless start_date > end_date
 
-      if start_date > end_date
-        errors.add(:start_date, "incohérence dans les dates")
-      end
+      errors.add(:start_date, "incohérence dans les dates")
     end
 end
