@@ -17,8 +17,8 @@ table.table.is-striped.is-fullwidth
     - @banners.each do |banner|
       tr
         td = truncate(banner.message, length: 30)
-        td = l(banner.start)
-        td = l(banner.end)
+        td = l(banner.start_date)
+        td = l(banner.end_date)
         td = link_to icon_text("far fa-eye", "Visualiser"), banner
         td = link_to icon_text("far fa-edit", "Éditer"), edit_banner_path(banner)
         td = link_to icon_text("fas fa-trash", "Supprimer"), \

@@ -123,7 +123,8 @@ class BannersControllerTest < ActionDispatch::IntegrationTest
 
     def banner_params
       { banner: {
-        message: SecureRandom.hex, start: Date.yesterday, end: Date.tomorrow
+        message: SecureRandom.hex, start_date: Date.yesterday,
+                                                         end_date: Date.tomorrow
       } }
     end
 end

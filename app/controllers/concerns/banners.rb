@@ -6,6 +6,8 @@ module Banners
 
     def load_banners
       now = Date.current
-      @banners = Banner.where(["start <= :now and end >= :now", { now: now }])
+      @banners = Banner.where(
+        ["start_date <= :now and end_date >= :now", { now: now }]
+      )
     end
 end

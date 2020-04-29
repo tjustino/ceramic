@@ -8,7 +8,7 @@ class BannersController < ApplicationController
 
   # GET /admin/banners
   def index
-    @banners = Banner.all.order(:start)
+    @banners = Banner.all.order(:start_date)
   end
 
   # GET /admin/banners/1
@@ -61,7 +61,7 @@ class BannersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def banner_params
-      params.require(:banner).permit(:message, :start, :end)
+      params.require(:banner).permit(:message, :start_date, :end_date)
     end
 
     def notice_message(action)
