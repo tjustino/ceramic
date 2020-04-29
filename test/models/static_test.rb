@@ -5,7 +5,7 @@
 # Table name: statics
 #
 #  id         :integer          not null, primary key
-#  page       :integer
+#  page       :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

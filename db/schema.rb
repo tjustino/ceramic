@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_201659) do
   end
 
   create_table "statics", force: :cascade do |t|
-    t.integer "page"
+    t.integer "page", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
