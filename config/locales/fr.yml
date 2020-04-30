@@ -27,8 +27,9 @@ fr:
           has_one:      "Impossible de supprimer car il existe une %{record}."
           has_many:     "Impossible de supprimer car il existe des %{record}."
         taken:          "a déjà été pris"
-        too_short:      "doit comporter au minimum %{count} caractères"
-
+        too_short:
+          one:          "doit comporter au moins un caractère"
+          other:        "doit comporter au minimum %{count} caractères"
 
 ################################################################################
 # Active Support
