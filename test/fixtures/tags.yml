@@ -8,6 +8,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+############################################################### Arts de la table
 tasses_et_mugs:
   name: Tasses et mugs
   meta_tag: arts_de_la_table

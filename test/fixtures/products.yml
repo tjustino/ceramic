@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+####################################################################### promoted
 product_01:
   name: Morbi
   description: Sed ut efficitur arcu, vitae fringilla mauris. Praesent eu odio hendrerit, mattis mauris quis, porttitor leo. Phasellus sed arcu metus. Proin consequat lacus in molestie molestie. Donec nec diam aliquet, viverra sem in, ullamcorper tellus. Nulla tincidunt nunc vitae ultricies porttitor. Sed placerat, sapien et dictum pretium, metus nulla sollicitudin diam, gravida pretium felis ex eu ligula.
