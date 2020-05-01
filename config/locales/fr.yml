@@ -23,6 +23,7 @@ fr:
         invalid:        "n'est pas valide"
         not_a_number:   "doit être une valeur numérique"
         record_invalid: "La validation a échoué : %{errors}"
+        required:       "doit exister"
         restrict_dependent_destroy:
           has_one:      "Impossible de supprimer car il existe une %{record}."
           has_many:     "Impossible de supprimer car il existe des %{record}."
