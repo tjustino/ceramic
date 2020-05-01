@@ -8,6 +8,8 @@ class CreateProductTagRelations < ActiveRecord::Migration[6.0]
       t.references :tag,     null: false, foreign_key: true
 
       t.timestamps
+
+      t.index %i[product_id tag_id], unique: true
     end
   end
 end

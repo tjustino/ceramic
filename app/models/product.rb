@@ -24,6 +24,9 @@ class Product < ApplicationRecord
 
   validates :name,  presence: true
   validates :price, presence: true, numericality: true
+  validates :tags,  length: {
+    minimum: 1, message: "doit comporter au moins une étiquette"
+  }
 
   # private
   #   def ensure_not_referenced_by_any_line_item
