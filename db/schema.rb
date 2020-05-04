@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_201659) do
     t.boolean "is_promoted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_products_on_name", unique: true
   end
 
   create_table "statics", force: :cascade do |t|
@@ -103,6 +104,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_201659) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["meta_tag_id"], name: "index_tags_on_meta_tag_id"
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

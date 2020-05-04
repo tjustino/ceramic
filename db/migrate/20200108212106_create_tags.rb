@@ -8,6 +8,8 @@ class CreateTags < ActiveRecord::Migration[6.0]
       t.references :meta_tag, null: false, foreign_key: true
 
       t.timestamps
+
+      t.index [:name], unique: true
     end
   end
 end

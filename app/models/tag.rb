@@ -15,6 +15,6 @@ class Tag < ApplicationRecord
   has_many :product_tag_relations, dependent: :restrict_with_error
   has_many :products,              through: :product_tag_relations
 
-  validates :name,        presence: true
+  validates :name,        presence: true, uniqueness: true
   validates :meta_tag_id, presence: true
 end

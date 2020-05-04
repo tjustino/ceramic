@@ -29,6 +29,12 @@ class TagTest < ActiveSupport::TestCase
     assert_equal ["ne peut pas être vide"], missing_mt_id.errors[:meta_tag_id]
   end
 
+  test "should not create tag with duplicated name" do
+    duplicated_name = Tag.new(name: Tag.first.name, meta_tag_id: rand_meta_tag)
+    assert duplicated_name.invalid?
+    assert_equal ["a déjà été pris"], duplicated_name.errors[:name]
+  end
+
   # TODO: test product_tag_relations, dependent: :restrict_with_error
 
   private ######################################################################
