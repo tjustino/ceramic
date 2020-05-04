@@ -24,7 +24,7 @@ class MetaTagTest < ActiveSupport::TestCase
     assert_equal ["ne peut pas être vide"], missing_name.errors[:name]
   end
 
-  test "should not create meta tag whose name has already been taken" do
+  test "should not create meta tag with duplicated name" do
     duplicated_name = MetaTag.new(name: MetaTag.first.name)
     assert duplicated_name.invalid?
     assert_equal ["a déjà été pris"], duplicated_name.errors[:name]
