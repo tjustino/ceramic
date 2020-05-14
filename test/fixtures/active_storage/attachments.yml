@@ -1,25 +1,41 @@
+<% @images = Array.new %>
+<% Dir.glob("test/fixtures/files/*.jpg").each do |file| %>
+<% @images << File.basename(file, ".jpg") + "_image" %>
+<% end %>
+
+# Statics
 terms_embed_image:
   name: embeds
   record_type: ActionText::RichText
   record: terms_rich_text
-  blob: cup_image
+  blob: <%= @images.sample %>
 
 privacy_embed_image:
   name: embeds
   record_type: ActionText::RichText
   record: privacy_rich_text
-  blob: fruits_image
+  blob: <%= @images.sample %>
 
 gallery_embed_image:
   name: embeds
   record_type: ActionText::RichText
   record: gallery_rich_text
-  blob: hands_image
+  blob: <%= @images.sample %>
 
 whoami_embed_image:
   name: embeds
   record_type: ActionText::RichText
   record: whoami_rich_text
-  blob: hearts_image
+  blob: <%= @images.sample %>
 
-# honey_image
+# Products
+# generates between 1 and 3 times an image attachment
+<% (1..50).each do |product_number| %>
+<% (rand(3) + 1).times do |iterations| %>
+<%= "product_" + product_number.to_s + "_embed_image_" + iterations.to_s %>:
+  name: images
+  record_type: Product
+  record: <%= "product_" + format("%02d", product_number) %>
+  blob: <%= @images.sample %>
+<% end %>
+<% end %>

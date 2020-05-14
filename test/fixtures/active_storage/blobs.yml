@@ -1,7 +1,9 @@
 # load all jpg in test/fixtures/files
+<% FileUtils.rm_r Dir.glob("storage/*") %>
 <% Dir.glob("test/fixtures/files/*.jpg").each do |file| %>
+<% blob = ActiveStorage::Blob.create_and_upload! io: Pathname.new(File.expand_path(file)).open, filename: File.basename(file), content_type: "image/jpeg" %>
 <%= File.basename(file, ".jpg") %>_image:
-  key: <%= ActiveStorage::Blob.generate_unique_secure_token %>
+  key: <%= blob.key %>
   filename: <%= File.basename(file) %>
   content_type: image/jpeg
   metadata: '{"identified":true, "analyzed":true}'
