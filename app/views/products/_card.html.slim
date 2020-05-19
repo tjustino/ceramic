@@ -4,7 +4,7 @@
       .card
         .card-image
           figure.image
-            = image_tag asset_pack_path("media/images/original_1.jpg")
+            = image_tag product.images.first.variant(resize: "500x500", gravity: "center", quality: 95, extent: "500x500")
             - if product.tags.any?
               .ribbon
                 h2

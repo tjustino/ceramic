@@ -1,10 +1,13 @@
 # load all jpg in test/fixtures/files
-<% Dir.glob("test/fixtures/files/*.jpg").each do |file| %>
+<% FileUtils.rm_r Dir.glob(Rails.root.join("storage", "*")) %>
+<% Dir.glob(Rails.root.join("test", "fixtures", "files", "*.jpg")).each do |file| %>
+<% blob = ActiveStorage::Blob.create_and_upload! io: Pathname.new(File.expand_path(file)).open, filename: File.basename(file) %>
+<% blob.analyze %> # long and boring
 <%= File.basename(file, ".jpg") %>_image:
-  key: <%= ActiveStorage::Blob.generate_unique_secure_token %>
+  key: <%= blob.key %>
   filename: <%= File.basename(file) %>
-  content_type: image/jpeg
-  metadata: '{"identified":true, "analyzed":true}'
+  content_type: <%= blob.content_type %>
+  metadata: '<%= blob.metadata.to_s %>'
   byte_size: <%= File.size(file) %>
   checksum: <%= Digest::MD5.file(file).base64digest %>
 <% end %>
