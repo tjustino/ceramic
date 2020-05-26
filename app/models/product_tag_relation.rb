@@ -14,7 +14,8 @@ class ProductTagRelation < ApplicationRecord
   belongs_to :product
   belongs_to :tag
 
-  validates :product_id, presence: true, uniqueness: {
+  validates :product_id, presence: true, on: :update # new Product don't have id
+  validates :product_id, uniqueness: {
     scope:   :tag_id,
     message: "cette étiquette est déjà apposée sur ce produit"
   }

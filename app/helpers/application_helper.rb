@@ -37,4 +37,11 @@ module ApplicationHelper
   def abbreviation(acronym, definition)
     content_tag(:abbr, acronym, title: definition)
   end
+
+  def resize(image, size = "128x128")
+    image.variant(resize: size, gravity: "center", quality: 95, extent: size)
+    # length = size.partition("x").first
+    # width  = size.partition("x").last
+    # image.variant(resize_to_limit: [length, width], quality: 95)
+  end
 end

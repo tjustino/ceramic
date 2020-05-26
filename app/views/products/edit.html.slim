@@ -1,0 +1,9 @@
+= render partial: "admin/breadcrumb",
+         locals: { \
+           previous_nav_text: "Produits",
+           previous_nav_link: products_path,
+           current_nav_text:  icon_text("far fa-edit", "Édition du produit"),
+           current_nav_link:  edit_product_path(@product) \
+         }
+
+= render partial: "form", locals: { product: @product }

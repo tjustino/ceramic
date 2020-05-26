@@ -1,0 +1,19 @@
+.columns.is-centered
+  .column.is-narrow
+    figure
+      / = image_tag resize(@product.images.first, "500x500")
+      = render partial: "product_image", locals: { image: @product.images.first }
+.tabs.is-centered.is-boxed
+  ul
+    - @product.images.each_with_index do |image, index|
+      = tag.li class: (index == 0 ? "is-active" : nil), id: image.id
+        = link_to image_tag(resize(image, "64x64")), product_path(@product, image: image.id), remote: true
+
+.columns.is-vcentered
+  .column
+    h1.title = @product.name
+    h2.subtitle = number_to_currency(@product.price)
+  .column.is-narrow
+    = link_to icon_text("fas fa-cart-plus", "Ajouter au panier"), to_cart_path(@product), method: :post, class: "button is-link is-rounded"
+
+p.content = @product.description

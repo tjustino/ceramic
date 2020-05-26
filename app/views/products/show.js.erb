@@ -1,0 +1,8 @@
+<% image     = @product.images.find(@image) %>
+<% new_image = escape_javascript(render partial: "product_image",
+                                        locals: { image: image }) %>
+
+document.getElementById('current_image').outerHTML = '<%= new_image %>';
+
+document.getElementsByClassName('is-active')[0].className = '';
+document.getElementById(<%= @image %>).className = 'is-active';

@@ -4,7 +4,7 @@
       .card
         .card-image
           figure.image
-            = image_tag product.images.first.variant(resize: "500x500", gravity: "center", quality: 95, extent: "500x500")
+            = link_to image_tag(resize(product.images.first, "500x500")), product_path(product), class: "card-footer-item has-text-info"
             - if product.tags.any?
               .ribbon
                 h2
