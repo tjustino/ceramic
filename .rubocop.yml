@@ -24,8 +24,14 @@ Layout/IndentationConsistency:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-# Asked by rubocop
+# rubocop requirement
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
 Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
   Enabled: true
 
 Lint/RaiseException:
@@ -44,4 +50,7 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
+  Enabled: true
+
+Style/SlicingWithRange:
   Enabled: true
