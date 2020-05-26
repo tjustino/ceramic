@@ -33,6 +33,9 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml)
   config.active_storage.service = :local
 
+  # Use a real queuing backend for Active Job (and separate queues per env)
+  config.active_job.queue_adapter = :inline
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

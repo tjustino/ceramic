@@ -62,7 +62,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per env)
-  # config.active_job.queue_adapter     = :resque
+  config.active_job.queue_adapter = :inline
   # config.active_job.queue_name_prefix = "ceramic_production"
 
   config.action_mailer.perform_caching = false
