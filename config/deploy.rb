@@ -15,6 +15,7 @@ set :linked_files, fetch(:linked_files, []).push("config/database.yml",
 
 set :linked_dirs, fetch(:linked_dirs, []).push("log",
                                                ".bundle",
+                                               "storage",
                                                "tmp/pids",
                                                "tmp/cache",
                                                "tmp/sockets",
