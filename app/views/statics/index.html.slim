@@ -12,5 +12,5 @@ table.table.is-striped.is-fullwidth
   tbody
     - @statics.each do |static|
       tr
-        td = static.page
+        td = enum_to_human(static.page)
         td = link_to icon_text("far fa-edit", "Éditer"), edit_static_path(static)

@@ -40,8 +40,15 @@ module ApplicationHelper
 
   def resize(image, size = "128x128")
     image.variant(resize: size, gravity: "center", quality: 95, extent: size)
-    # length = size.partition("x").first
-    # width  = size.partition("x").last
-    # image.variant(resize_to_limit: [length, width], quality: 95)
+  end
+
+  def enum_to_human(enum)
+    case enum
+    when "whoami"  then "Qui je suis"
+    when "privacy" then "Politique de confidentialité"
+    when "gallery" then "Galerie photos"
+    when "terms"   then "Conditions Générales de Vente"
+    else enum
+    end
   end
 end
