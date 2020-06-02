@@ -1,11 +1,10 @@
 .columns.is-centered
   .column.is-narrow
     figure
-      / = image_tag resize(@product.images.first, "500x500")
-      = render partial: "product_image", locals: { image: @product.images.first }
+      = render partial: "product_image", locals: { image: @product.images.order(:id).first }
 .tabs.is-centered.is-boxed
   ul
-    - @product.images.each_with_index do |image, index|
+    - @product.images.order(:id).each_with_index do |image, index|
       = tag.li class: (index == 0 ? "is-active" : nil), id: image.id
         = link_to image_tag(resize(image, "64x64")), product_path(@product, image: image.id), remote: true
 

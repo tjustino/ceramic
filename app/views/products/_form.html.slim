@@ -8,27 +8,8 @@
             = form.label :images, "Images", class: "label"
             / file show
             - if product.images.attached?
-              / figure.image.is-128x128
-              /   = image_tag product.images.first.variant(resize: "128x128", gravity: "center", quality: 95, extent: "128x128")
-              / .tabs.is-toggle.is-toggle-rounded.is-centered
-              /   ul
-              /     - @images_count.times do |index|
-              /       li class="#{'is-active' if index == 0}" = link_to (index+1).to_s
-
-              / .slideshow-container
-              /   - product.images.each_with_index do |product_image, index|
-              /     .mySlides.fade
-              /       .numbertext = (index+1).to_s + "/" + @images_count.to_s
-              /       = image_tag product_image.variant(resize: "500x500", gravity: "center", quality: 95, background: "gray", extent: "500x500")
-              /   a.prev onclick="plusSlides(-1)">&#10094;
-              /   a.next onclick="plusSlides(1)">&#10095;
-              / br
-              / div style="text-align:center"
-              /   - @images_count.times do |index|
-              /     span.dot onclick="currentSlide(#{index+1})"
-
               .columns.is-centered.is-multiline
-                - product.images.each_with_index do |product_image, index|
+                - product.images.order(:id).each_with_index do |product_image, index|
                     .column
                       figure.image.is-128x128
                         = image_tag product_image.variant(resize: "128x128", gravity: "center", quality: 95, background: "#DBDBDB", extent: "128x128")
