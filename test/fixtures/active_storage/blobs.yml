@@ -1,8 +1,10 @@
 # load all jpg in test/fixtures/files
-<% FileUtils.rm_r Dir.glob(Rails.root.join("storage", "*")) %>
+<% if Rails.env.development? %>
+  <% FileUtils.rm_r Dir.glob(Rails.root.join("storage/*")) %>
+<% end %>
 <% Dir.glob(Rails.root.join("test", "fixtures", "files", "*.jpg")).each do |file| %>
 <% blob = ActiveStorage::Blob.create_and_upload! io: Pathname.new(File.expand_path(file)).open, filename: File.basename(file) %>
-<% blob.analyze %> # long and boring
+<% blob.analyze %>
 <%= File.basename(file, ".jpg") %>_image:
   key: <%= blob.key %>
   filename: <%= File.basename(file) %>
